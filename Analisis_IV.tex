@@ -1,0 +1,1058 @@
+\documentclass[12pt,twoside]{report}
+\newcommand\mc[1]{\mathcal{#1}}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc} %%esto es para las tildes en linux
+\usepackage{lipsum}
+\usepackage{mathptmx}
+\usepackage[paper=a4paper, margin=2.5 cm, top=2.5 cm, bottom=2.5cm]{geometry}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\usepackage{graphicx}
+\usepackage[all]{xy}
+\usepackage{ mathrsfs }
+\usepackage{relsize}
+\usepackage{amsfonts}
+\usepackage{scrextend}
+\usepackage{tcolorbox}
+\usepackage{mathptmx}
+\usepackage{wrapfig}
+\usepackage[new]{old-arrows}
+\usepackage{makeidx}
+\usepackage{comment}
+\usepackage{units}
+\usepackage[new]{old-arrows}
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathmorphing}
+\usepackage{lmodern}
+\usepackage{graphicx} % provides "\rotatebox" and "\reflectbox" macros
+\usepackage{mathtools}
+\usepackage[document]{ragged2e}
+\usepackage{ulem}
+\usepackage{etoolbox}
+\usepackage[shortlabels]{enumitem}
+\usepackage{MnSymbol} %\upmapsto \downmapsto
+\usepackage{hyperref}
+\usepackage{multicol}
+\setlist[enumerate]{nosep}
+\makeatletter
+\providecommand{\subtitle}[1]{% para poner un \subtitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\newlength{\LETTERheight}
+\AtBeginDocument{\settoheight{\LETTERheight}{I}}
+\newcommand\rotPi{\rotatebox[origin=c]{180}{$\Pi$}}
+\newcommand\longmapsfrom{\rotatebox[origin=c]{180}{$\longmapsto$}}
+\newcommand{\bbint}{\mathlarger{\mathlarger{\int}}}
+\newcommand{\bint}{\mathlarger{\int}}
+\newcommand*{\pd}[3][]{\ensuremath{\dfrac{\partial^{#1} #2}{\partial #3}}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\bfseries \thepage}
+\fancyhead[RE,LO]{\itshape}
+\titleformat{\chapter}[hang]{\bfseries\Large}{}{6pt}{}
+\titlespacing*{\chapter}{0pt}{0pt}{20pt}
+\titleformat{\section}[hang]{\bfseries\large}{\thesection.}{4pt}{}
+\titlespacing*{\section}{0pt}{20pt}{10pt}
+\titleformat{\subsection}[hang]{\bfseries\normalsize}{\thesubsection.}{6pt}{}
+\titleformat{\subsubsection}[hang]{\itshape\normalsize}{\thesubsubsection.}{6pt}{}
+\linespread{1.5}
+\parskip=10pt
+
+\hypersetup{
+    colorlinks=false,
+    linkcolor=blue,
+    urlcolor=red,
+    pdftitle={Apuntes de Análisis IV \today},
+    }
+
+\newtheoremstyle{plain}
+{0pt} % Space above
+{10pt} % Space below
+{} % Body font
+{} % Indent amount
+{\bfseries} % Theorem head font
+{.} % Punctuation after theorem head
+{.5em} % Space after theorem head
+{} % Theorem head spec (can be left empty, meaning `normal')
+
+
+\newtheoremstyle{azul}
+{0pt} % Space above
+{10pt} % Space below
+{} % Body font
+{} % Indent amount
+{\bfseries \color{blue}} % Theorem head font
+{.} % Punctuation after theorem head
+{.5em} % Space after theorem head
+{} % Theorem head spec (can be left empty, meaning `normal')
+
+\newtheoremstyle{azul2}
+{0pt} % Space above
+{10pt} % Space below
+{} % Body font
+{} % Indent amount
+{\itshape \color{blue}} % Theorem head font
+{.} % Punctuation after theorem head
+{.5em} % Space after theorem head
+{} % Theorem head spec (can be left empty, meaning `normal')
+
+
+\theoremstyle{azul}
+  \newtheorem*{propx}{Proposición}
+  \newtheorem*{demx}{Demostración}
+  \newtheorem*{defix}{Definición}
+  \newtheorem*{propix}{Propiedades}
+  \newtheorem*{corx}{Corolario}
+  \newtheorem*{ejex}{Ejemplos}
+
+\theoremstyle{azul2}
+  \newtheorem*{obsx}{Observación}
+
+\theoremstyle{plain}
+  \newtheorem{pro}{Proposición}[chapter]
+  \newtheorem*{lem}{Lema}
+  \newtheorem*{teoGM}{Teorema de Gram–Schmidt}
+  \newtheorem*{orto}{Algoritmo de ortonormalización}
+  
+\theoremstyle{definition}
+  \newtheorem{eje}{Ejemplo}[chapter]
+  \newtheorem*{ejes}{Ejemplos}
+  \newtheorem*{theodiv}{Teorema de la Divergencia}
+  \newtheorem*{theorot}{Teorema del Rotacional}
+  \newtheorem*{prop}{Proposición}
+  \newtheorem*{clasi}{Clasificación}
+  \newtheorem{defin}{Definición}[chapter]
+  \newtheorem*{propi}{Propiedades}
+  \newtheorem*{dem}{Demostración}
+  \newtheorem{demos1}{Demostración}
+  \newtheorem*{consprev}{Consideraciones previas}
+  \newtheorem{teo}{Teorema}[chapter]
+  \newtheorem*{theo}{Teorema}
+  \newtheorem*{theogreen}{Teorema de Riemann-Green}
+  \newtheorem*{cor}{Corolario}
+  \newtheorem{coro}{Corolario}  
+  \newtheorem*{ejers}{Ejercicios}
+  \newtheorem*{ejer}{Ejercicio}
+  \newtheorem*{ejern}{Ejercicio}
+
+
+\theoremstyle{remark}
+  \newtheorem*{obs}{Observación}
+  \newtheorem*{sol}{Solución}
+  \newtheorem*{pag}{Página}
+  \newtheorem*{nota}{Notación}
+  
+  
+\title{\textit{\textbf{Análisis Matemático IV}}}
+\subtitle{2º Matemáticas, Universidad de Salamanca} 
+\author{Sara S.G. \and Ismael T.V. \and Pablo Z.G.}
+\date {\today}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\thispagestyle{empty}
+\chapter{\textbf{Tema 0. Nociones básicas previas.}}
+\justifying
+\setcounter{chapter}{0}
+\section{Rectángulos en $\mathbb{R}^k$:}
+\begin{defin}
+Un \textbf{rectángulo} en $\mathbb{R}^k$ es un producto cartesiano del tipo $I_1 \times \ldots \times I_k$ donde $I_1, \ldots, I_k$ son intervalos (acotados) en $\mathbb{R}$.
+\end{defin}
+\begin{eje}
+Un rectángulo lo podemos visualizar de la siguiente manera,  $\mc{K} = [a_1, b_1] \times [a_2, b_2]$ es un rectángulo cerrado en $\mathbb{R}^2$. 
+\end{eje}
+\begin{nota}
+Utilizaremos la notación $\{a_1,b_1\} \times \cdots \times \{a_k,b_k\}$ para denotar a un rectángulo cuyos intervalos factores tienen como extremos los $a_i, b_i$, incluyendo todos los casos posibles. Esto es, los intervalos pueden ser cerrados, abiertos o semiabiertos.
+\end{nota}
+\begin{defin}
+Sea $\mc{K}$ el rectágulo $\{a_1,b_1\} \times \cdots \times \{a_k,b_k\}$ en $\mathbb{R}^k$, un \textbf{vértice} de $\mc{K}$ es un punto $(x_1, \ldots, x_k) \in \mathbb{R}^k$ tal que $x_j$ coincide con  $a_j$ ó $b_j$ para todo $j \in (1, \ldots, k)$. Dos vértices son opuestos si cada coordenada de uno de ellos es distinta de la correspodiente coordenada del otro.
+\end{defin}
+\begin{defin}
+Una \textbf{diagonal} de $\mc{K}$ es un segmento que une dos vértices opuestos. La longitud de la diagonal de $\mc{K}$ es $\sqrt{(b_1-a_1)^2 + \cdots + (b_k-a_k)^2}$.
+\end{defin}
+\begin{defin}
+El \textbf{diámetro} de $\mc{K}$ (en el sentido habitual de subconjunto de un espacio métrico, es decir, el supremo de las distancias entre 2 de sus puntos) es la longitud de una cualquiera de las diagonales.
+\end{defin}
+\begin{defin}
+Llamaremos \textbf{volumen} de $\mc{K}$ (y lo denotaremos por $vol$($\mc{K}$)) al producto de las longitudes de sus lados: $(b_1-a_1) \cdots (b_k-a_k)$.
+\end{defin}
+\section{Conjuntos de medida nula y conjuntos de contenido nulo en $\mathbb{R}^k$.}
+\begin{defin}
+Sea $A$ un \textbf{subconjunto} de $\mathbb{R}^k$, se dice que $A$ es \textbf{de medida nula} si para cada $\varepsilon > 0$ existe una sucesión de rectángulos abiertos $(V_n)$ en $\mathbb{R}^k$ que verifican que 
+$$A \subseteq \bigcup_{n=1}^{\infty} \: V_n \qquad \text{y} \qquad \mathlarger{\sum}_{n=1}^{\infty} \: vol(V_n) \: < \: \varepsilon$$
+\end{defin}
+\begin{defin}
+Se dice que $A$ es un \textbf{subconjunto de contenido nulo} si para cada $\varepsilon > 0$ hay rectángulos abiertos $V_1, \ldots, V_m$ en $\mathbb{R}^k$ tales que $$A \subseteq \bigcup_{j=1}^{m} \: V_j \qquad \text{y} \qquad \mathlarger{\sum}_{j=1}^{m} \: vol(V_j) \: < \: \varepsilon$$
+\end{defin}
+
+\begin{pro}
+Si $A$ es de medida nula y compacto, también es de contenido nulo.
+\end{pro}
+\begin{dem}
+Si $A$ es de medida nula, existe un recubrimiento de $A$ por rectángulos abiertos cuyo volumen total es menor que cualquier $\varepsilon$ dado. Por ser compacto, de este recubrimiento se puede extraer uno finito, cuyos rectángulos componentes verifican directamente las propiedades necesarias para que $A$ sea también de contenido nulo.
+\end{dem}
+
+\begin{eje}
+Si $A=\{x_n\}_{n \in \mathbb{N}}$ es un subconjunto numerable de $\mathbb{R}^k$, entonces $A$ es de medida nula.
+\begin{dem}
+En efecto, dado un $\varepsilon > 0$ podemos considerar para cada $n \in \mathbb{N}$ un cubo $W$ abierto (es decir, un rectángulo abierto cuyos intervalos factores, o lados, sean todos de la misma longitud) centrado en $x_n$ y con volumen $< \frac{\varepsilon}{2^{n+1}}$, entonces $A \subseteq \bigcup_{n=1}^{\infty} \: W_n$ y $$\mathlarger{\sum}_{n=1}^{\infty} \; vol(W_n) = \mathlarger{\sum}_{n=1}^{\infty}\; \dfrac{\varepsilon}{2^{n+1}} = \dfrac{\nicefrac{\varepsilon}{4}}{\nicefrac{1}{2}} = \dfrac{\varepsilon}{2} < \varepsilon$$
+\end{dem}
+\end{eje} 
+
+\begin{eje}
+El conjunto $\mathbb{Q}^k$ de los puntos de $\mathbb{R}^k$ con coordenadas racionales es de medida nula.
+\end{eje}
+
+
+\begin{eje}
+La unión de una familia numerable de conjuntos de medida nula también lo es.
+\end{eje}
+\begin{dem}
+Supongamos que $A_n$ es de medida nula $\forall \; n \in \mathbb{N}$. Entonces, dado $\varepsilon > 0$, existe una sucesión de rectángulos abiertos $\{V_{n_l}\}_{l \in \mathbb{N}}$, tal que $A_n \subseteq \bigcup_{l=1}^{\infty} \: V_{n_l}$ y $\mathlarger{\sum}_{l=1}^{\infty} \: vol(V_{n_l}) < \nicefrac{\varepsilon}{2^{n+1}}$ para todo $n \in \mathbb{N}$. La unión de estos $\{V_{n_l}\}$ al variar $n$ sobre $\mathbb{N}$ es también una familia numerable, y se tiene que $\mathlarger{\sum}_{n,l=1}^{\infty} \: vol(V_{n_l}) <\mathlarger{\sum}_{n=1}^{\infty} \: \nicefrac{\varepsilon}{2^{n+1}} = \nicefrac{\varepsilon}{2} < \varepsilon$.
+\end{dem}
+
+\begin{eje}
+Si $K = \{a_1,b_1\} \times \{a_2, b_2\} \times \cdots \times \{a_k,b_k\}$ es un rectángulo, entonces su frontera $\partial K$ es de medida nula.
+Observemos que $\partial K = \{a_1\} \times \{a_2, b_2\} \times \cdots \times \{a_k,b_k\} \cup \{b_1\} \times \{a_2, b_2\} \times \cdots \times \{a_k,b_k\} \cup \{a_1, b_1\} \times \{a_2\} \times \cdots \times \{a_k,b_k\} \cup \cdots \cdots \cup \{a_1, b_1\} \times \{a_2, b_2\} \times \cdots \times \{a_{k-1},b_{k-1}\} \times \{a_k\} \cup \{a_1, b_1\} \times \{a_2, b_2\} \times \cdots \times \{a_{k-1},b_{k-1}\} \times \{b_k\}$.
+\end{eje}
+\begin{dem}
+Veamos por ejemplo que $C_1 = \{a_1\} \times \{a_2, b_2\} \times \cdots \times \{a_k,b_k\}$ es de medida nula, lo cual quedará demostrado si vemos que dado $\varepsilon > 0$ hay un rectángulo abierto $V \in \mathbb{R}^k$ tal que $C_1 \subseteq V$ y $vol(V) < \varepsilon$. Consideremos $V_{\delta} = (a_1 - \delta, a_1 + \delta) \times ((a_2 - \delta, a_2 + \delta) \times \cdots \times (a_k - \delta, a_k + \delta)$, con $\delta > 0$. Si $\delta \rightarrow 0$, se tiene que $vol(V_{\delta}) \rightarrow 0$. Luego, tomando un $\delta$ suficientemente pequeño, conseguimos que $vol(V_{\delta}) < \varepsilon$.
+\end{dem}
+
+\begin{eje}
+$\{a_1\} \times \mathbb{R}^{k-1}$ también es de medida nula en $\mathbb{R}^k$ \textcolor{red}{(ejercicio sencillo)}.
+\end{eje}
+\subsection{Caracterización de los conjuntos de medida nula mediante cubos.}
+A continuación veremos que en la definición de conjunto de medida nula pueden sustituirse los rectángulos que allí aparecen por cubos. Es decir, se verifica lo siguiente:
+\begin{pro}
+Un conjunto $A$ de $\mathbb{R}^k$ es de medida nula si y solo si para cada $\varepsilon > 0$ hay una sucesión de cubos abiertos $(W_n)$ tal que $A \subseteq \bigcup_{n=1}^{\infty} W_n$ y $\sum_{n=1}^{\infty} vol(W_n) < \varepsilon$. 
+\end{pro}
+\begin{dem}
+Veamos primero que todo rectángulo $K$ en $\mathbb{R}^k$ está contenido en la unión de una familia finita de cubos abiertos cuya suma de volúmenes es menor que $2\, vol(K)$. De esto se deduce fácilmente que lo anteriormente enunciado es cierto \textcolor{red}{(ejercicio)}.
+
+Consideremos entonces tal rectángulo $K \in \mathbb{R}^k$. Trasladándolo si fuera preciso podemos suponer que $K$ tiene un vértice en el origen de coordenadas. Podemos construir en $\mathbb{R}^k$ $k$ conjunto de hiperplanos paralelos, respectivamente, a $x_1 = 0$, $x_2 = 0 , \cdots , x_k=0$. Cada conjunto se construirá eligiendo un hiperplano que cumpla la condición fijada y construyendo el siguiente hiperplano y (el anterior) a una distancia fija $d>0$ del primero (repitiendo el proceso recursivamente). Con esto, $\mathbb{R}^k$ queda subdividido como unión de cubos cerrados iguales disjuntos de volumen $d^k$. De este modo $K$ queda recubierto de un conjunto finito de cubos cerrados cuya suma de volúmenes, si tomamos $d$ suficientemente pequeño, será menor que $2 \, vol(K)$. Cada uno de estos cubos cerrados está contenido en un cubo abierto cuyo volumen es arbitrariamente próximo al del cerrado. Por tanto, conseguimos que $K$ esté contenido en una unión de cubos abiertos con volumen también menor que $2 \, vol(K)$.
+\end{dem}
+\section{Oscilación de una función real}
+\begin{defin}
+Sea $X$ un espacio topológico y $f:\; X \longrightarrow \mathbb{R}$ una función acotada. Sea $A$ un subconjunto de $X$. Se llama \textbf{oscilación de $f$ en $A$} a $o(f,A):= \: \sup(f,A)-\inf(f,A)$.
+
+Sea $f: X \longrightarrow \mathbb{R}$ una aplicación acotada y $A \subseteq X$ un subconjunto. La oscilación ahora se define como $o(f,A) := \: \underset{x \in A}{\sup}\{f(x)\} - \underset{x \in A}{\inf}\{f(x)\}$. 
+
+Dado $x_0 \in X$, se llama oscilación de $f$ en $x_0$ al ínfimo de las oscilaciones de $f$ en los entornos abiertos de $x_0$. La notación  será $o(f,x_0)$. Es fácil (\textcolor{red}{ejercicio sencillo}) ver que $o(f,x_0)=0 \: \Leftrightarrow \: f$ es continua en $x_0$. Se deduce de la definición que dado $\varepsilon > 0$ el conjunto $\{x \in X \: : \: o(f,x) < \varepsilon \}$ es abierto, luego $\{ x \in X \: : \: o(f,x) \geq \varepsilon\}$ es cerrado.
+\end{defin}
+
+\chapter{\textbf{Tema 1. \\ Definición y primeras propiedades de la integral.}}
+\section{Introducción a la integral.}
+\subsection{Particiones de un rectángulo cerrado.}
+\begin{defin}
+Consideremos un rectángulo cerrado $\mc{K}=[a_1,b_1] \times \cdots \times [a_k,b_k]$ en $\mathbb{R}^k$. Se llama \textbf{partición} de $\mc{K}$ a todo conjunto del tipo $\{P_1, \ldots, P_k\}$ donde $P_j$ es una partición del intervalo $[a_j, b_j]$ para $1 \leq j \leq k$.
+Si $P=\{P_1, \ldots, P_k\}$ es de la forma anterior, se dice que $P$ es el producto de las particiones $P_1, \ldots, P_k$ y se denota por $P=P_1 \times \cdots \times P_k$.
+\end{defin}
+\begin{obs}
+Una partición $P$ de $\mc{K}$ puede también interpretarse como una subdivisión de $K$ en rectángulos cerrados más pequeños.
+
+Cuando una partición $P$ de $\mc{K}$ lo subdivide en rectángulos $K_i$ más pequeños, expresaremos esto de modo abreviado poniendo que $K_i \in P$.
+\end{obs}
+
+Sea $\mc{K}$ el rectángulo cerrado expuesto anteriormente
+\begin{defin}
+Dadas dos particiones $P$ y $P'$ de $\mc{K}$, se dice que $P'$ es más fina que $P$ si cada rectángulo de $P'$ está contenido en alguno de $P$. Equivalentemente, diremos que si $P=P_1 \times \cdots \times P_k$ y $P'=P'_1 \times \cdots \times P'_k$, entonces $P'_j$ es más fina que $P_j$ para $1 \leq j \leq k$.
+\end{defin}
+\subsection{Sumas de Riemann e Integral de Riemann.}
+Sea $f: \mc{K} \longrightarrow \mathbb{R}$ acotada y sea $P \in Part(\mc{K})=$\{particiones de $\mc{K}$\}
+\begin{defin}
+Se define la \textbf{suma superior (de Riemann)} de $f$ respecto de $P$ como sigue $$S(f,P) := \underset{K_i \in P}{\mathlarger{\sum}} \sup(f,K_i) \cdot vol(K_i)$$ Análogamente, \textbf{la suma inferior de Riemann} se define como $$s(f,P) := \underset{K_i \in P}{\mathlarger{\sum}} \inf(f,K_i) \cdot vol(K_i)$$
+\end{defin} 
+\begin{teo}
+Si $P,P' \in Part(\mc{K})$, $f: \mc{K} \longrightarrow \mathbb{R}$ es acotada y con $P'$ más fina que $P$, entonces se verifica que:
+$$s(f,P) \leq s(f,P') \leq S(f,P') \leq S(f,P)$$
+\end{teo}
+\begin{cor}
+Si $P,Q \in Part(\mc{K})$, se tiene que $s(f,P) \leq S(f,Q)$. 
+
+Como consecuencia, $\{s(f,P) \: : \: P \in Part(\mc{K})\}$ es superiormente acotada y análogamente $\{S(f,P) \: : \: P \in Part(\mc{K})\}$ es inferiormente acotada. Existe, por tanto, el supremo de todas las sumas inferiores y el ínfimo de las sumas superiores. 
+\end{cor}
+\begin{defin}
+Al primero se le llama integral inferior en $\mc{K}$ de $f$ y se le denota por $\underset{\mc{K}}{\underline{\mathlarger{\int}}} f(x) \: dx$ (con notación abreviada) y $\underset{\mc{K}}{\underline{\mathlarger{\int}}} f(x_1,\ldots,x_k) \: dx_1 \ldots dx_k$\;, sin abreviar. De la misma forma, al ínfimo de las sumas superiores se le denomina integral superior de $f$ en $\mc{K}$ y se le denota por $\underset{\mc{K}}{\overline{\mathlarger{\int}}} f(x) \: dx$.
+\end{defin}
+
+\begin{obs}
+$\underset{\mc{K}}{\underline{\mathlarger{\int}}} f(x) \: dx$ y $\underset{\mc{K}}{\overline{\mathlarger{\int}}} f(x) \: dx$ siempre existen, pero pueden no coindicir. Si coinciden se dice que $f$ es integrable en $\mc{K}$ (o que existe la \textbf{integral de Riemann} de $f$ en $\mc{K}$) y al valor común de las mencionadas integrales se le llama integral de $f$ en $\mc{K}$ y se le denota por $\underset{\mc{K}}{\mathlarger{\int}} f(x) \: dx$ (o $\underset{\mc{K}}{\mathlarger{\int}} f(x_1,\ldots,x_k) \: dx_1 \ldots dx_k$).
+\end{obs}
+\subsection{ Criterio de integrabilidad y teorema de Lebesgue.}
+
+Igual que para el caso de una única variable, se demuestra el siguiente:
+\begin{teo} \textbf{Criterio de Integrabilidad.} 
+
+Si $\mc{K}$ y $f$ son como antes, $f$ es integrable en $\mc{K}$ si y solo si para cada $\varepsilon > 0$ hay una $P \in Part(\mc{K})$ tal que $S(f,P)-s(f,P) < \varepsilon$.
+\end{teo}
+\newpage
+\begin{teo} \textbf{de Lebesgue.}
+
+Una función acotada $f:\; \mc{K} \;\longrightarrow \; \mathbb{R}$ es integrable si y solo si el conjunto de puntos de discontinuidad es de medida nula.
+\end{teo}
+\begin{dem}
+Observemos en primer lugar que el conjunto de puntos de discontinuidad de $f$ es $A = \{x\in K \; / \; o(f,x)> 0\}$
+
+Supongamos para empezar que $f$ es integrable y veamos que $A$ es de medida nula. Como $A = \bigcup_{n = 1}^{\infty} A_n$, donde $A_n = \{x \in K \; / \; o(f,x) \geq \frac{1}{n}\}$, basta con demostrar que $A_n$ es de medida nula para todo $n \in \mathbb{N}$ (porque la unión numerable de conjuntos de medida nula también lo es).
+
+Consideremos entonces un $n \in \mathbb{N}$ fijo y veamos que $A_n$ es de medida nula. Dado $\varepsilon > 0$, por ser $f$ integrable hay una $P \in Part(K)$ tal que $S(f,P) - s(f,P) < \nicefrac{\varepsilon}{n}$. Llamando ahora $P'$ al conjunto de los rectángulos de $P$ cuyo interior contiene a algún punto de $A_n$, se tiene que $$\dfrac{\varepsilon}{n} > S(f,P)-s(f,P) = \underset{K_i \in P}{\mathlarger{\sum}} o(f,K_i) vol(K_i) \geq \underset{K_i \in P'}{\mathlarger{\sum}} o(f,K_i) vol(K_i) \geq \dfrac{1}{n} \underset{K_i \in P'}{\mathlarger{\sum}} vol(K_i)$$
+donde se ha utilizado que si $K_i \in P'$, $o(f,K_i) \geq \nicefrac{1}{n}$ porque ${K_i}^{\circ}$ contiene puntos de $A_n$.
+
+Se deduce de la desigualdad obtenida que $\underset{K_i \in P'}{\mathlarger{\sum}} vol(K_i) < \varepsilon$ y como $A_n$ está contenida en la unión de los $K_i$ de $P'$ junto con la unión de las fronteras de los $K_i$ de $P$, y la unión de estas fronteras es un conjunto de medida nula, podemos añadir a los ${K_i}^{\circ}$ con $K_i \in P'$ rectángulos abiertos con volúmenes suficientemente pequeños para que la suma de todos los volúmenes de los rectángulos abiertos resultantes siga siendo $< \varepsilon$ y de modo que la unión de todos ellos contenga a $A_n$, con lo que acabamos.
+
+Supongamos ahora que $A$ es de medida nula, y sea $\varepsilon > 0$. Entonces, el conjunto $A_{\varepsilon} = \{x \in K \; / \; o(f,x) \geq \varepsilon\}$ es también de medida nula, y por ser cerrado y acotado, es compacto, luego es de contenido nulo, por lo que hay rectángulos abiertos $V_1, \ldots, V_r$ en $\mathbb{R}^k$ tales que $A_{\varepsilon} \in \bigcup_{i=1}^r V_i$ y $\underset{j=1}{\mathlarger{\sum^r}} vol(K_i) < \varepsilon$. Observemos ahora que para cada $x \in K - A_{\varepsilon}$ hay un entorno abierto $W_x$ de $x$ en $K$ tal que $o(f,W_x) < \varepsilon$. Tenemos entonces un recubrimiento abierto $\{V_1, \ldots, V_r\} \cup \{W_x\}_{x \in K - A_{\varepsilon}}$ de $K$. Como $K$ es compacto, hay un número de Lebesgue de este recubrimiento, es decir, existe $\delta > 0$ tal que todo subconjunto de $K$ cuyo diámetro sea menor o igual que $\delta$ está contenido en alguno de los abiertos del recubrimiento.
+
+Consideremos ahora una partición $P$ de $K$ cuya norma $N(P)$ (es decir, el máximo de los diámetros de los rectángulos de $P$) sea menor que $\delta$. Entonces, cada rectángulo $K_i$ de $P$ está contenido en alguno de los abiertos del mencionado recubrimiento. Llamemos ahora $P'$ al conjunto de los rectángulos de $P$ que están contenidos en $\bigcup_{i=1}^r V_i$ y llamemos $P''$ al resto de los rectángulos de $P$. Se tiene entonces que 
+$$S(f,P) - s(f,P) = \underset{K_i \in P}{\mathlarger{\sum}} o(f,K_i) \: vol(K_i) = \underset{K_i \in P'}{\mathlarger{\sum}} o(f,K_i) \: vol(K_i) + \underset{K_i \in P''}{\mathlarger{\sum}} o(f,K_i) \: vol(K_i)$$ $$< 2 M \varepsilon +  vol(K) \: \varepsilon= (2M+ vol(K)) \: \varepsilon$$ 
+donde $M$ es una cota superior de $|f|$ en $K$ (teniendo que $o(f,K_i) \leq 2M$). En el segundo sumatorio, para acotar hemos utilizado que $o(f,K_i) < \varepsilon$ porque $K_i \subset W_x$ para todo $K_i \in P''$ y algún $W_x$. Por tanto, queda demostrado que $f$ verifica el criterio de integrabilidad.
+\end{dem}
+\begin{obs}
+En la demostración del Teorema de Lebesgue, para probar que si el conjunto $A$ de los puntos de discontinuidad de $f$ es de medida nula, entonces $f$ es integrable, vimos, aunque no se citara explícitamente, que se verifica lo siguiente: \vspace{-5mm}
+\begin{center} \underline{Dado $\varepsilon > 0$ existe un $\delta>0$ tal que $P \in Part(\mc{K})$ y $N(P) < \delta$ $\Rightarrow$ 
+$S(f, P) - s(f,P) < \varepsilon$} \end{center}
+\end{obs}
+\subsection{Convergencia de las sumas de Riemann de una función integrable al valor de su integral.}
+\begin{defin} Consideremos $f: \mc{K} \longrightarrow \mathbb{R}$ una función acotada. Sea $P \in Part(\mc{K})$, llamaremos \textbf{suma de Darboux} de $f$ respecto de $P$ a toda suma del tipo 
+$$\sum_{K_i \in P} f(\alpha_i) \; vol(K_i) \text{, donde } \alpha_i \text{ es un punto cualquiera de } \mc{K}.$$
+\end{defin}
+\begin{obs}Observemos que si llamamos $D(f,P)$ a una suma de Darboux cualquiera de $f$ respecto de $P$, se verifica que 
+$$s(f,P) \leq D(f,P) \leq S(f,P)$$
+Observemos también que si $f$ es continua, $s(f, P)$ y $S(f,P)$ también son suma de Darboux (por el Teorema de Weierstrass).
+\end{obs}
+\begin{teo}
+Dada $f: \mc{K} \longrightarrow \mathbb{R}$ integrable, para cada sucesión $(P_n)$ de particiones de $\mc{K}$ tal que $\lim_{n \to \infty}N(P_n)=0$ se verifica que $$\int_{\mc{K}} f(x) \: dx = \lim_{n \to \infty} D(f, P_n)$$ donde $D(f, P_n)$ es suma de Darboux cualquiera de $f$ respecto de $P_n$. En particular, si $f$ es continua, se verifica que $$\int_{\mc{K}} f(x) \: dx = \lim_{n \to \infty} s(f, P_n) = \lim_{n \to \infty} S(f, P_n)$$
+\end{teo}
+\begin{dem}
+Sea $\varepsilon > 0$ y sea ($P_n$) una sucesión en $Part(\mc{K})$ tal que $N(P_n)\overset{n \to \infty}{\longrightarrow} 0$, por la primera de las observaciones anteriores, hay un $\delta > 0$ tal que $P \in Part(\mc{K})$ y $N(P) < \delta \; \Rightarrow S(f,P) - s(f, P) < \varepsilon$. Como se supone que $N(P_n) \overset{n \to \infty}{\longrightarrow} 0$ hay un $n_0 \in \mathbb{N}$ tal que $n \geq n_0$ $\Rightarrow$ $N(P_n) < \delta$, de forma que $S(f, P_n) - s(f, P_n) < \varepsilon$. Teniendo ahora en cuenta que tanto $\int_{\mc{K}} f(x) dx$ como $D(f, P_n)$ son valores intermedios entre $s(f, P_n)$ y $S(f,P_n)$, deducimos que 
+$$\left|\int_{\mc{K}} f(x) dx   - D(f, P_n)  \right| < \varepsilon$$
+Quedando así demostrado que la integral es límite de cualquier sucesión de sumas de Darboux. De forma que 
+$$\lim_{n \to \infty} D(f, P_n) =  \int_{\mc{K}} f(x) dx $$
+\end{dem}
+\begin{cor}\textbf{Linealidad de la Integral.}
+
+Otra consecuencia del Teorema de Lebesgue es que la suma y el producto de dos funciones integrables son también integrables. En efecto, si $f$ y $g$ son funciones integrables en $\mc{K}$ y llamamos $A_f$ y $A_g$ a sus respectivos conjuntos de puntos de discontinuidad, es claro que se tiene que $A_{f+g} \subseteq A_f \cup A_g$ y $A_{fg} \subseteq A_f \cup A_g$ con el significado de $A_{f+g}$ y $A_{fg}$ análogo al ya explicado. Por tanto, si $f$ y $g$ son integrables, sus conjuntos de puntos de discontinuidades son de medida nula, y la unión también lo será, siendo $A_{f+g}$ y $A_{fg}$ también de medida nula, y por el Teorema de Lebesgue, integrables. 
+
+En particular, $\lambda \cdot f$ es integrable para cualquier $\lambda \in \mathbb{R}$, y razonando análogamente a las funciones de una variable, observamos que la aplicación definida por $$
+\begin{array}{rcl}
+     \{\text{funciones integrables en }\mc{K}\} & \longrightarrow & \mathbb{R}  \\
+      f & \longmapsto & \mathlarger{\int}_{\mc{K}} f(x) dx 
+\end{array}$$ es lineal.
+\end{cor}
+\subsection{Subdivisión del rectángulo de integración.}
+\begin{teo} \textbf{de Subdivisón del Rectángulo de Integración.} 
+
+Sea $f: \mc{K} \longrightarrow \mathbb{R}$ acotada y sea $P \in Part(\mc{K})$. entonces $f$ es integrable en $\mc{K}$ si y solo si lo es en cada rectángulo $K_i \in P$. Si esto es así, se tiene que $$\int_{\mc{K}} f(x) dx = \mathlarger{\sum}_{K_i \in P }\int_{{K_i}} f(x) dx$$
+\begin{dem}
+Ejercicio, ver los apuntes de $1^{\circ}$
+\end{dem}
+\end{teo}
+\subsection{Integración sobre un producto de rectángulos cerrados y teorema de Fubini.}
+Sean $\mc{K}$ y $\mc{L}$ rectángulos cerrados en $\mathbb{R}^k$ y $\mathbb{R}^n$ respectivamente. Sea $f: \mc{K} \times \mc{L} \longrightarrow \mathbb{R}$ integrable. Para cada $x \in \mc{K}$ vamos adenotar por $f_x: \mc{L} \longrightarrow \mathbb{R}$ a la función definida por $f_x(y)=f(x,y)$ y $f_y: \mc{K} \longrightarrow \mathbb{R}$ con $y \in \mc{L}$, de forma análoga lo anterior. 
+
+Para cada $x \in \mc{K}$, $\alpha(x)$ y $\beta(x)$ serán $\underset{\mc{L}}{\underline{\mathlarger{\int}}} f_x(y) \: dy$ y $\underset{\mc{L}}{\overline{\mathlarger{\int}}} f_x(y) \: dy$ respectivamente. Lo análogo para $y \in \mc{L}$. 
+
+\begin{teo} \textbf{de Fubini.}
+
+Con las hipótesis y la notación anteriores, las funciones $\alpha$ y $\beta$ son integrables en $\mc{K}$ y se tiene que 
+$$\underset{\mc{K}}{\mathlarger{\int}} \alpha (x)\: dx=\underset{\mc{K}}{\mathlarger{\int}} \beta (x)\: dx=\underset{\mc{K} \times \mc{L}}{\mathlarger{\int}} f (x,y)\: dx$$
+
+Si además $f_x$ es integrable en $\mc{L} \; \forall \: x \in \mc{K}$ (lo cual sucede por ejemplo, si $f$ es continua), se verifica que 
+$$\underset{\mc{K} \times \mc{L}}{\mathlarger{\int}} f (x,y)\: dx \: dy= \underset{\mc{K}}{\mathlarger{\int}} \left( \underset{\mc{L}}{\mathlarger{\int}} f (x,y)\: dy \right) dx$$
+
+Lo análogo sucede si $f_y$ es integrable para todo $y \in \mc{L}$.
+\end{teo}
+\begin{dem} \:
+
+Sea $\varepsilon > 0$ y sea $P$ una partición de $\mc{K} \times \mc{L}$ tal que $S(f,P) - s(f,P) < \varepsilon$, entonces $P$ es el producto de una partición $P'\in Part(\mc{K})$ por otra partición $P''\in Part(\mc{L})$ en el sentido evidente. Tenemos entonces que 
+$$s(f,P)=\underset{{\underset{\mc{L}_j \in P''}{\mc{K}_i \in P' }}}{\mathlarger{\sum}} \inf(f,\mc{K}_i \times \mc{L}_j) \: vol(\mc{K}_i \times \mc{L}_j)$$
+donde $\mc{K}_i$ varía entre los rectángulos de $P'$ y $\mc{L}_j$ varía entre los rectángulos de $P''$. El sumatorio puede expresarse también del modo siguiente:
+$$s(f,P)=\underset{\mc{K}_i \in P'}{\mathlarger{\sum}}\left(\underset{\mc{L}_j \in P''}{\mathlarger{\sum}} \inf(f,\mc{K}_i \times \mc{L}_i) \: vol(\mc{L}_i)\right) \: vol(\mc{K}_i)$$
+Como para cada $x_i \in \mc{K}_i$ fijo, se verifica que $\inf(f,\mc{K}_i \times \mc{L}_j) \leq \inf(f_{x_i}, \mc{L}_j)$, fijando un $x_i$ en cada $\mc{K}_i$, tenemos que $\underset{\mc{L}_j \in P''}{\mathlarger{\sum}} \inf(f,\mc{K}_i \times \mc{L}_i) \: vol(\mc{L}_j) \leq \underset{\mc{L}_j \in P''}{\mathlarger{\sum}} \inf(f_{x_i},\mc{L}_j) \: vol(\mc{L}_j)=s(f,P'')\leq \alpha(x_i)$. Por lo tanto, $s(f,P) \leq \underset{\mc{K}_i \in P'}{\mathlarger{\sum}} \alpha(x_i) \: vol(\mc{K}_i)$. Como esta desigualdad es cierta para todo $x_i \in \mc{K}_i$, también será cierta la desigualdad obtenida sustituyendo $\alpha(x_i)$ por $\inf(\alpha, \mc{K}_i)$ con lo que resulta:
+$$s(f,P) \leq \underset{\mc{K}_i \in P'}{\mathlarger{\sum}} \inf(\alpha,\mc{K}_i) \: vol(\mc{K}_i) = s(\alpha, P')$$
+Análogamente puede demostrarse que $S(\beta, P') \leq S(f,P)$. Tenemos entonces que:
+$$s(f,P)\leq s(\alpha,P') \leq S(\alpha, P') \leq S(\beta,P') \leq S(f,P)$$
+de lo que se deduce que $S(\alpha,P')-s(\alpha,P') < \varepsilon$, luego $\alpha$ verifica el criterio de integrabilidad y $\alpha$ es integrable en $\mc{K}$.
+
+También es cierto que:
+$$s(f,P)\leq s(\alpha,P') \leq s(\beta, P') \leq S(\beta,P') \leq S(f,P)$$ 
+y también vemos que $S(\beta, P') - s(\beta, P') < \varepsilon$ y por tanto $\beta$ es integrable en $\mc{K}$.
+
+Demostraremos ahora la igualdad del enunciado. Esta es consecuencia inmediata de que los extremos de las anteriores cadenas de desigualdades $s(f,P)$ y $S(f,P)$ se diferencian en menos de $\varepsilon$, $\forall \: \varepsilon > 0$, y de que todas las integrales de las igualdades que queremos demostrar son valores intermedios entre $s(f,P)$ y $S(f,P)$. Dos cualesquiera de estas integrales se diferencian también, por lo tanto, en menos de $\varepsilon$, $\forall \: \varepsilon > 0$, luego son iguales. $\square$
+\end{dem}
+\subsection{Continuidad y derivabilidad de funciones definidas por una integral dependiente de un parámetro.}
+Sea $f: \mc{K} \times [a,b] \longrightarrow \mathbb{R}$ una aplicación continua, siendo $\mc{K}$ un rectángulo cerrado en $\mathbb{R}^k$. Sea $F: [a,b] \longrightarrow \mathbb{R}$ definida por $F(t)=\mathlarger{\int}_{\mc{K}} \; f(x,t)dx$ con $x=x_1, \ldots,x_k$ y $dx=dx_1, \ldots, dx_k$.
+\begin{teo}
+$F$ también es continua.
+\end{teo}
+\begin{teo}\textbf{de la regla de derivación bajo el signo de la integral.}
+
+Si además $\frac{\partial f}{\partial t}$ existe y es continuo en $\mc{K} \times [a,b]$, entonces $F$ es derivable y además se verifica que $F'(t_0)=\mathlarger{\int}_{\mc{K}} \; \frac{\partial f}{\partial t}(x,t_0)dx $
+\end{teo}
+
+
+
+\section{Medida de \textit{Jordan}.}
+\subsection{Conjuntos \textit{J}-medibles.}
+Sea $A$ un subconjunto de $\mathbb{R}^k$ y sea $\mathscr{H}_A$ la función definida en todo $\mathbb{R}^k$ por 
+$$\mathscr{H}_A(x)=\left\{ \begin{array}{ll}
+     1 &, \text{ si } x \in A  \\
+     0 &, \text{ si } x \nin A  
+\end{array}\right.$$
+A esta función se la denomina función característica de $A$.
+
+Supongamos ahora que además, $A$ es acotada y sea $\mc{K}$ un rectángulo cerrado en $\mathbb{R}^k$ tal que $A \subseteq \mc{K}$. podemos considerar entonces la integral $\mathlarger{\int_{\mc{K}}}\mathscr{H}_A(x) \: dx$, que puede existir o no. Observemos que el conjunto de puntos de discontinuidad de $\mathscr{H}_A(x)$ es $\partial A$ y, por lo tanto, la integral existirá si y solo si $\partial A$ es de medida nula (por el Teorema de Lebesgue).
+
+\begin{defin}
+Cuando $A$ sea un subconjunto acotado de $\mathbb{R}^k$ cuya frontera es de medida nula se dice que $A$ es \textbf{$\boldsymbol{J}$-medible} ($Jordan$-medible). 
+\end{defin}
+\subsection{Volumen de un conjunto \textit{J}-medible.}
+\begin{defin} \label{defvol}
+Para este tipo de conjuntos se puede definir su volumen del modo siguiente: si $A$ es $J$-medible y $\mc{K}$ es un rectángulo cualquiera que contenga a $A$, se define el volumen de $A$ de la forma
+$$vol(A)=\mathlarger{\int_{\mc{K}}}\mathscr{H}_A(x) \: dx$$
+La definición es correcta porque dado otro rectángulo $\mc{K}'$ tal que $A \subseteq \mc{K}'$, para probar que $\mathlarger{\int_{\mc{K}}}\mathscr{H}_A(x) \: dx=\mathlarger{\int_{\mc{K}'}}\mathscr{H}_A(x) \: dx$, podemos suponer que $\mc{K} \subseteq \mc{K}'$ y obtenemos la conclusión deseada en el rectángulo de integración.
+\end{defin}
+\subsection{Integral sobre un conjunto \textit{J}-medible de una función continua en casi todo punto.}
+\begin{defin} También se puede definir la integral de una función sobre un conjunto $J$-medible $A$. Supongamos entonces que $f: A \longrightarrow \mathbb{R}$ es continua y acotada en casi todo punto (lo cual quiere decir que su conjunto de puntos de discontinuidad es de medida nula). 
+
+Podemos considerar a $f$ como función en todo $\mathbb{R}^k$ asignándole el valor 0 en el complementario $\mathbb{R}^k - A$, con lo cual $f$ sigue siendo continua en casi todo punto. Consideremos ahora un rectángulo $\mc{K}$ que contenga a $A$ y definamos lo siguiente
+$$\mathlarger{\int_{A}}f(x) \: dx = \mathlarger{\int_{\mc{K}}}f(x)\mathscr{H}_A(x) \: dx$$
+que existe, de nuevo, por el Teorema de Lebesgue. Por un razonamiento similar al de la \hyperref[defvol]{\textit{Definición 1.7.}} (volumen de un conjunto $J$-medible), se ve que está definición también es correcta.
+\end{defin}
+\begin{teo}\: \label{teo1.9.} 
+Si $\mc{U} \subseteq \mathbb{R}^k$ es abierto, hay una sucesión ($A_n$) de conjuntos compactos $J$-medibles tal que se verifican:
+\begin{enumerate}[1)] \vspace{-3mm}
+    \item $A_n \subseteq \mathring{A}_{n+1} \quad \forall n \in \mathbb{N}$
+    \item $\mc{U} = \overset{\infty}{\underset{n=1}{\mathlarger{\bigcup}}} A_n$
+\end{enumerate}
+\end{teo}
+\begin{dem}
+Veamos primero que hay una sucesión $(Q_n)$ de subconjuntos compactos de $\mathbb{R}^k$ verificando las análogas a 1) y 2). Podemos tomar por ejemplo un punto $x_0 \in \mc{U}$ y tomar $Q_n$ como $\bar{B}(x_0,n)\cap \{x \in \mc{U} \: : \: d(x,\mathbb{R}^k-\mc{U}) \geq \frac{1}{n}\}$
+
+Consideremos ahora para cada $n \in \mathbb{N}$ fijo y cada $x \in Q_n$ un rectángulo cerrado cuyo interior contenga a $x$ y esté contenido en $\mathring{Q}_{n+1}$. Como $Q_n$ es compacto, un conjunto finito de estos rectángulos lo recubren, pudiendo denominar $A_n$ a la unión de este conjunto finito de rectángulos.
+
+Entonces $A_n$ es $J$-medible $\forall \: n \in \mathbb{N}$ y además es fácil ver que se verifican 1) y 2) del enunciado. 
+\end{dem}
+\section{Integrales Impropias.}
+Consideremos $f: \mc{U} \longrightarrow \mathbb{R}$, con $\mc{U}$ abierto de $\mathbb{R}^k$. Supongamos que $f$ es localmente acotada (es decir, todo punto de $\mc{U}$ tiene un entorno en el que $f$ es acotada) y también que es continua en casi todo punto.
+\begin{teo}
+Por el \hyperref[teo1.9.]{\textit{Teorema 1.9}}, hay una sucesión $(A_n)$ de subconjuntos $J$-medibles de $\mc{U}$ tales que:
+\begin{enumerate}[1)]
+    \item $A_n \subset A_{n+1}$
+    \item $\mc{U}=\overset{\infty}{\underset{n=1}{\bigcup}} \: A_n$
+\end{enumerate}
+\end{teo}
+\begin{defin}
+De las hipótesis se deduce que existe $\mathlarger{\int_{A_n}} f(x) dx \; \forall \: n \in \mathbb{N}$. Se dice que $f$ es integrable en $\mc{U}$ si existe
+$$\lim_{n \to \infty}\mathlarger{\int_{A_n}} f(x) dx$$ 
+y este no depende de la sucesión $(A_n)$ considerada.
+\end{defin}
+\begin{eje}
+Veamos un ejemplo en el que el límite de la definición anterior puede no existir pero depender de la sucesión $(A_n)$ considerada, con lo cual la función no es integrable.
+
+Tenemos $\mc{U}=\mathbb{R}$ y consideremos la función $f(x)=\cos (x)$. Consideremos primero la sucesión de conjuntos $J$-medibles ($A_n$), con $A_n=[-n \pi, n \pi]$. Tenemos entonces que $$\mathlarger{\int_{A_n}} f(x) dx = \mathlarger{\int_{-n \pi}^{n \pi}} \cos (x) \:  dx=\sin (x) \Big]_{-n \pi}^{n \pi} = 0$$
+siendo obvio que existe $\underset{n \to \infty}{\lim}\mathlarger{\int_{A_n}} \cos(x) dx = 0$.
+
+Si en lugar de $A_n$ consideramos $B_n=[-n \pi, (n+\nicefrac{1}{2}) \pi]$ tenemos que 
+$$\mathlarger{\int_{B_n}} f(x) dx = \mathlarger{\int_{-n \pi}^{(n+\nicefrac{1}{2}) \pi}} \cos ( x )\:  dx=\sin  (x) \Big]_{-n \pi}^{(n+\nicefrac{1}{2}) \pi} = (-1)^n$$
+con lo que queda claro que existe $\mathlarger{\int_{\mathbb{R}}} \cos (x) \:  dx $
+\end{eje}
+\chapter{Tema 2. \\ Integración en conjuntos \textit{J}-medibles y fórmula del cambio de variable.}
+\section{Integración en conjuntos \textit{J}-medibles.}
+\subsection{Aproximación de los conjuntos \textit{J}-medibles mediante uniones finitas de cubos.}
+\begin{theo} \label{teo1} \textbf{1.}
+Si $A \subset \mathbb{R}^k$ es $J$-medible, para cada $\varepsilon > 0$ hay uniones finitas de cubos cerrados arbitariamente pequeños $L_1$ y $L_2$ tales que $L_1 \subseteq A \subseteq L_2$ y $vol(L_2) - vol(L_1) < \varepsilon$.
+\begin{dem}
+
+Como $A$ es acotado por ser $J$-medible hay un cubo cerrado $\mc{K}$ que contiene a $A$. Dividiendo cada intervalo factor de $\mc{K}$ en $n$ intervalos de la misma longitud con interiores disjuntos, podemos obtener una partición $P$ de $\mc{K}$ formada por cubos arbitrariamente pequeños y tal que $S(\mathscr{H}_A,P)-s(\mathscr{H}_A,P) < \varepsilon$.
+
+Consideramos por ejemplo la suma de los volúmenes de los $K_i \in P$ que cortan a $A$. Análogamente, $S(\mathscr{H}_A,P)=\underset{K_i \in P}{\mathlarger{\sum}} \: \sup(\mathscr{H}_A,K_i) \cdot vol(K_i)$. Observemos que 
+$$\sup(\mathscr{H}_A,K_i)=\left\{ \begin{array}{ll}
+     0 & , \text{ si } K_i \cap A = \emptyset \\
+     1 & , \text{ si } K_i \cap A \neq \emptyset 
+\end{array}\right.$$
+Con lo cual vemos que $S(\mathscr{H}_A,P)$ es la suma de los volúmenes de los $K_i \in P$ que cortan a $A$.
+
+Análogamente,  $s(\mathscr{H}_A,P)=\underset{K_i \in P}{\mathlarger{\sum}} \: \inf(\mathscr{H}_A,K_i) \cdot vol(K_i)$ y se tiene que 
+$$\inf(\mathscr{H}_A,K_i)=\left\{ \begin{array}{ll}
+     0 & , \text{ si } K_i \nsubset A \\
+     1 & , \text{ si } K_i \subseteq A 
+\end{array}\right.$$ Con lo cual vemos que $s(\mathscr{H}_A,P)$ es la suma de los volúmenes de los $K_i \in P$ que están contenidos en $A$. \newpage
+
+Llamemos $L_1$ a la unión de los $K_i \in P$ contenidos en $A$ y llamemos $L_2$ a la unión de los $K_i \in P$ que cortan a $A$. Es obvio entonces que $L_1 \subseteq A \subseteq L_2$ y se tiene que $vol(L_2)=S(\mathscr{H}_A,P)$ y $vol(L_1)=s(\mathscr{H}_A,P)$, con lo cual $vol(L_2)-vol(L_1)< \varepsilon$, con lo que acabamos. \hfill $\square$
+\end{dem}
+\end{theo}
+\begin{obs}
+El mismo tipo de razonamiento permite deducir que $L_1$ puede tomarse de modo que $L_1 \subseteq \mathring{A}$ y que $L_2$ puede tomarse de modo que $\bar{A} \subseteq L_2$ (téngase en cuenta para verlo que si $A$ es $J$-medible, también lo son $\mathring{A}$ y $\bar{A}$ porque en ambos casos sus fronteras están contenidas en $\partial A$). Aunque no lo vamos a necesitar, de esto se deduce que la condición del teorema es necesaria y suficiente para que $A$ sea $J$-medible.
+\end{obs}
+\begin{cor}
+El volumen de un conjunto $J$-medible es invariante por traslación. Es consecuencia inmediata de que el enunciado del \hyperref[teo1]{\textit{Teorema 1.}} es cierto para cualquier cubo.
+\end{cor}
+\begin{defin}
+
+Llamaremos norma cúbica de un vector $x \in \mathbb{R}^k$ a la norma definida del modo siguiente: 
+$$||x||=\max\{|x_1|, \ldots, |x_k|\}$$
+supuesto que $x=(x_1, \ldots, x_k)$. Observemos que para la distancia asociada a esta norma, la bola $B(a,r)=(a_1-r,a_1+r) \times \cdots \times (a_k-r,a_k+r)$, siendo $a=(a_1, \ldots, a_k) \in \mathbb{R}^k$. 
+
+\end{defin}
+
+\begin{lem}
+Si $U$ es un subconjunto abierto de $\mathbb{R}^k$ hay una sucesión de bolas cerradas $(B_n)$ contenidas en $U$ y de modo que $U=\underset{n=1}{\overset{\infty}{\mathlarger{\bigcup}}} B_n$
+\end{lem}
+\begin{dem}
+Consideremos la familia $F$ de todas las bolas cerradas centradas en puntos de $U$ con coordenadas racionales y con radio racional menor que la distancia de su centro a $\mathbb{R}^k - U$.
+
+Esta familia es numerable, luego las bolas que la forman pueden ordenarse para obtener una sucesión $(B_n)$ como la del enunciado. 
+\end{dem}
+\subsection{Imagen de un conjunto $J$-medible relativamente compacto por un isomorfismo entre abiertos de $\mathbb{R}^k$ de clase $\mc{C}^1$}
+\begin{nota}
+El símbolo $\Subset$ o equivalentemente $\subset \subset$ denota fuertemente contenido o ``compactamente contenido", es decir, si $A \Subset U$, entonces se cumple que $A \subseteq \bar{A} \subseteq \mathring{U}$ con $\bar{A}$ compacto.
+\end{nota}
+\begin{theo} \textbf{2.} \label{teo2}
+Si $\varphi: U \longrightarrow \mathbb{R}^k$ es de clase $\mc{C}^1$, con $U \subseteq \mathbb{R}^k$ abierto y $A \subseteq U$ es $J$-medible, también lo es $\varphi(A)$. 
+
+Como consecuencia, si $\varphi$ es un isomorfismo $\mc{C}^1$ de $U$ con $V \subseteq \mathbb{R}^k$ un subconjunto , $A \Subset U$ ($\bar{A} \subset U$ es compacto) es $J$-medible si y solo si lo es $\varphi(A)$.
+\end{theo}
+\begin{dem}
+Como la unión numerable de conjuntos de medida nula también es de medida nula, basta con demostrar que $\varphi(A \cap Q)$ es de medida nula, donde $Q$ es uno de los cubos cerrados del lema previo. Volviendo a llamar, por sencillez, $A$ a $A \cap Q$ podemos suponer entonces que hay cubos abiertos $W, W' \in \mathbb{R}^k$ tales que $A \Subset W \Subset W' \subseteq U$. En particular, $W'$ es un abierto convexo, luego para cada función componente $\varphi_j$ de $\varphi=(\varphi_1, \ldots, \varphi_k)$ existen funciones reales continuas $\varphi_{ij}$ en $W'$ tales que $$\varphi_j(b)-\varphi_j(a)=\mathlarger{\sum_{i=1}^k} \; \varphi_{ij}(a,b)(b_i-a_i)$$
+para cualesquiera $a,b \in W'$.
+
+Como $\overline{W}$ es un subconjunto compacto de $W'$ ($W \Subset W'$) las funciones $\varphi_{ij}$ están acotadas en $\overline{W}$, de lo que se deduce fácilmente, junto con la definición de la norma cúbica, que hay una constante $M$ tal que $||\: \varphi(b)-\varphi(a)|| \leq M||\:b-a\:||$ para cualesquiera $a,b \in \overline{W}$. Esto a su vez implica que un cubo $C$ contenido en $W$ se transforma por $\varphi$ en un subconjunto de otro cubo $C'$ tal que $vol(C') \leq M^k \: vol(C)$ (ya que si la longitud de un lado de $C$ es $\ell$, $C$ se transforma por cada coordenada $\varphi_j$ de $\varphi$ en un intervalo de longitud $\leq M \cdot \ell$ y como el volumen de $C$ es $\ell^k$, $C$ se transforma en un subconjunto de un cubo de lado $\leq M \cdot \ell$, cuyo volumen es $\leq M^k \cdot vol(C)$)
+
+Utilizando ahora que $A$ es de medida nula si y solo si para cada $\varepsilon > 0$ hay una sucesión de cubos cuya unión contiene a $A$ y cuya suma de volúmenes es $< \varepsilon$, deducimos de lo arriba explicado que $\varphi(A)$ también es de medida nula, finalizando la demostración.
+\end{dem}
+\begin{theo} \textbf{3.} \label{teo3}
+Sea $\varphi$ un automorfismo lineal de $\mathbb{R}^k$ y sea $A\subset \mathbb{R} ^k $ $J$-medible. Entonces $vol(\varphi(A))= |det(\varphi)| \cdot vol (A)$, siendo $det(\varphi)$ el determinante de la matriz asociada al automorfismo $\varphi$.
+\end{theo}
+\begin{dem}
+Observemos en primer lugar que, por el teorema previo, $\varphi(A)$ también es $J$-medible, luego tiene sentido considerar su volumen. Dividiremos el resto de la demostración en tres partes:
+\begin{enumerate}
+    \item Sea $K$ el cubo unidad cerrado $[0,1]^k$. Entonces $vol(\varphi)=|det(\varphi)|$. Observemos para ver esto que $\varphi(K)$ es el paralelepípedo en $\mathbb{R}^k$ generado por los vectores $(\varphi(e_1), \ldots, \varphi(e_k))$, siendo ${e_i}$ la base usual de $\mathbb{R}^k$, es decir, $\varphi(K)= \sum_{i=1}^k \lambda_i \cdot e_i$, con $\lambda_i \in [0,1]^k $. En Geometría Lineal se demuestra que la noción de volumen de la Geometría Lineal y la aquí considerada coincide, lo cual es consecuencia de que en ambos casos el volumen de una unión finita de cubos con interiores disjuntos es la suma de los volúmenes, de que el volumen es menor o igual que el volumen del conjunto que lo contiene y del Teorema 1 (según el cual el volumen de cualquier conjunto J-medible es aproximable por dentro y por fuera por volúmenes de uniones finitas de cubos con interiores disjuntos).
+    \item Si $Q$ es un cubo cerrado (o del tipo que sea) cualquiera, también es cierta para $Q$ la igualdad del teorema. Supongamos primero que $Q=[0, \rho]^k$ con $\rho >0$. Observemos que el automorfismo lineal $\psi$ de $\mathbb{R}^k$ definido por $\psi(x_1\ldots, x_k)= (\rho\cdot x_1, \ldots, \rho\cdot x_k)$ transforma $K=[0,1]^k$ en $Q$ y que $det(\psi)=\rho^k$. Se tiene entonces que $vol(\varphi(Q))=vol(\varphi \circ \psi(K))=|det(\varphi \circ \psi)|= |det(\varphi) \cdot \rho^k=|det(\varphi)|\cdot vol(Q)$. Si ahora consideramos un cubo cualquiera $Q'$ en $\mathbb{R}^k$, entonces $Q'$ es de la forma $x+Q$, para algún $x\in \mathbb{R}^k$ y para algún cubo $Q$ como el considerado anteriormente. Por el corolario del Teorema 1, $vol(Q')=vol(Q)$ y como $\varphi(Q')$ también se obtiene trasladando $\varphi(Q)$, obtenemos la conclusión deseada. Este resultado también es válido para cubos abiertos por ser la frontera de un cubo de medida nula.
+    \item Supongamos que $A$ es un conjunto medible cualquiera de $\mathbb{R}^k$. Entonces, la igualdad del teorema es consecuencia del \hyperref[teo1]{\textit{Teorema 1}} y del hecho de que dicha igualdad es válida para cualquier cubo.
+    
+    \end{enumerate}
+\end{dem}
+\begin{theo}\textbf{4.}
+Si $A\subset U$ es $J$-medible, siendo $U\subseteq\mathbb{R}^k$ un abierto y si $\varphi: U\longrightarrow V$ es un isomorfismo de clase $C^1$, se verifica que $vol(\varphi(A)) \leq  \mathlarger{\int_A} |J_{\varphi}(x)| \: dx$, donde $J_{\varphi}(x)$ es el determinante jacobiano de $\varphi$ en $x\in U$.
+
+\begin{dem}
+Veamos primero la desigualdad del enunciado en el caso particular en el que $A$ es un cubo cerrado cualquiera $K$ contenido en $U$. Sea $\rho>0$ y menor que $d(K, \mathbb{R}^k, U)$. Para cada $a\in K$ podemos considerar la composición $d_{\varphi(a)}\, \varphi^{-1} \circ \varphi$, a la que vamos a denotar por $\psi_a$. Observemos que $d_a \, \psi_a=d_{\varphi(a)}\, \varphi^{-1} \circ d_a \, \varphi=Id$ y que $\varphi= d_a\, \varphi \: \psi_a$.
+
+El resto del razonamiento en este caso particular lo dividiremos en tres partes:
+\begin{enumerate}
+    \item Definición de una función auxiliar en $K \times \bar{B}(0,p)$ que veremos que es continua.
+    Llamaremos $$F(a,h)=\dfrac{||\psi_a(a+h) - \psi_a(a) - h||}{||h||}$$ y observemos que $F$ es continua en $K \times (\bar{B}(0,p)-\{0\})$ y que, por ser $\lim F (a,h)=0 \; \forall a \in K$, por la definición de diferencial en un punto aplicada a $\psi_a$ en realidad $F(a,h)$ es continua en todo $K \times \bar{B}(0,p)$ y se anula en todos los puntos de la forma ($a,0$). 
+    \item Acotación del volumen de $\varphi(C)$ para un cubo $C \subseteq K$ suficientemente pequeño.
+    
+    Como $F$ es continua en $K \times \bar{B}(0,p)$, que es compacto, $F$ también es uniformemente continua. Por lo tanto, dado $\varepsilon > 0$, hay un $\delta > 0$ tal que $||h|| < \delta$, entonces $|F(a,h)-F(a,0)|<\varepsilon$, es decir, $$||h|| < \delta \; \Rightarrow \; \dfrac{||\psi_a(a+h) - \psi_a(a) - h||}{||h||} < \varepsilon \; \Rightarrow \; ||\psi_a(a+h) - \psi_a(a) - h||<(1+\varepsilon) \: ||h||$$
+    Por lo tanto si consideramos un cubo $C$ centrado en $a \in K$ y con semilado $\ell < \delta$ (que recordemos que es lo mismo que $\bar{B}(a,\ell)$), su imagen por $\psi_a$ está contenida en un cubo $C'$ centrado en $\psi_a(a)$ y semilado $(1+\varepsilon) \ell$, por lo que $$vol(C')< (1+\varepsilon)^k(2 \ell)^k=(1+\varepsilon) vol(C)$$
+    Utilizando ahora el \hyperref[teo3]{\textit{Teorema 3}} aplicado a $C'$ y teniendo en cuenta que $\varphi=d_a \varphi \circ \psi_a$, deducimos que $\varphi(C)$ está contenido en un paralelepípedo centrado en $\varphi(a)$ y con volumen $<|det(d_a\varphi)| \: (1+\varepsilon)^k \: vol(C)$
+    
+    \item Conclusión:
+    
+    Consideremos ahora una partición $P$ de $K$ formada por cubos con semilado $< \delta$. Entonces por lo ya visto en \textit{2.}, tenemos que 
+    $$vol(\varphi(K))=\mathlarger{\sum_{C_i \in P}}vol(\varphi(C_i)) \leq \mathlarger{\sum_{C_i \in P}} (1+\varepsilon)^k \: |J_{\varphi}(a_i)| \: vol(C_i)=(1+\varepsilon)^k \: D(|J_{\varphi}(a_i)|, P)$$
+    donde $D(|J_{\varphi}(a_i)|, P)$ denota la suma de Darboux de $|J_{\varphi}(a_i)|$ respecto de $P$. Como sabemos que estas sumas de Darboux ``tienden'' a   $\mathlarger{\int_K} |J_{\varphi}(x)| \: dx$ (en el sentido de que si tomamos una sucesión de particiones ($P_n$) tal que $N(P_n) \overset{n \to \infty}{\longrightarrow} 0$, la sucesión $D(|J_{\varphi}(a_i)|, P) \overset{n \to \infty}{\longrightarrow} \mathlarger{\int_K} |J_{\varphi}(x)| \: dx$) deducimos finalmente que $$vol(\varphi(K)) \leq (1+\varepsilon)^k \mathlarger{\int_K} |J_{\varphi}(x)| \: dx$$
+    
+    Tomando ahora límites cuando $\varepsilon \to 0$, obtenemos la conclusón deseada.
+    
+    \item En el caso general en que $A \Subset U$ es un conjunto $J$-medible cualquiera podemos razonar como sigue: 
+    
+    Consideremos un entorno abierto $W \Subset U$ de $A$ y sea $M$ una cota superior de $|J_{\varphi}|$ en $W$ (que existe porque $\overline{W}$ es un subconjunto compacto de $U$). Por el \hyperref[teo1]{\textit{Teorema 1.}}, hay una unión finita $L$ de cubos cerrados contenidos en $W$, con interiores disjuntos que contiene a $A$ y tal que $vol(L-A) < \nicefrac{\varepsilon}{M}$, con $\varepsilon > 0$ prefijado. Se tiene entonces
+    $$\hspace{-7mm} vol(\varphi(A)) \leq vol(\varphi(L)) \leq \mathlarger{\int_L} |J_{\varphi}(x)| \: dx = \mathlarger{\int_A} |J_{\varphi}(x)| \: dx + \mathlarger{\int_{L-A}} |J_{\varphi}(x)| \: dx < \mathlarger{\int_A} |J_{\varphi}(x)| \: dx + M \dfrac{\varepsilon}{M} \hspace{3cm} l$$
+    Luego $vol(\varphi(A)) \leq \mathlarger{\int_A} |J_{\varphi}(x)| \: dx + \varepsilon$, que cuando $\varepsilon \to 0$, obtenemos el resultado del enunciado.
+\end{enumerate}
+\end{dem}
+\end{theo}
+
+\subsection{Particiones \textit{J}-medibles.}
+\begin{defin}
+Vamos a considerar ahora particiones $J$-medibles de un rectángulo cerrado $K$ en $\mathbb{R}^k$. Una tal partición es una subdivisón de $K$ en conjuntos cerrados $J$-medibles con interiores disjuntos cuya unión sea $K$. 
+\end{defin}
+
+
+\subsection{Definición alternativa de la integral mediante sumas de Riemann en particiones \textit{J}-medibles.}
+Si $f: K \longrightarrow \mathbb{R}$ es acotada, podríamos repetir el proceso de definición de la integral sobre $K$ utilizando este otro tipo más general de particiones considerando sumas inferiores y superiores de $f$ respecto de estas otras particiones definidas del mismo modo que antes y podríamos definir el concepto de integral inferior e integral superior también del mismo modo. Cuando estas integrales coincidan, existiría la integral en este nuevo sentido (o $J$-integral para abreviar) y es claro que se tendría que 
+$$\underset{K}{\underline{\int}} f(x) \: dx \leq \overset{(J)}{\underset{K}{\underline{\int}}} f(x) \: dx \leq \overset{(J)}{\underset{K}{\overline{\int}}} f(x) \: dx \leq \underset{K}{\overline{\int}} f(x) \: dx $$
+Como los mismos razonamientos empleados para las demostraciones de los Teoremas previamente estudiados valen para demostrar los teoremas análogos para la $J$-integral y, en particular, vale el análogo al Teorema de Lebesgue, vemos que $f$ es integrable en el sentido habitual si y solo si lo es en este nuevo sentido. Además, de las desigualdades anteriores se deduce fácilmente que las dos integrales coinciden.
+
+Si $f: A \longrightarrow \mathbb{R}$ es acotada con $A$ conjunto $J$-medible en $\mathbb{R}^k$, ya sabemos que si $f$ es cotinua en casi todo punto, $f$ es integrable en $A$. Otro procedimiento para calcular $\mathlarger{\int_A} f(x) \: dx$ que se puede utilizar sería considerar particiones $J$-medibles de $A$ y definir directamente $\mathlarger{\int_A} f(x) \: dx$ mediante estas particiones tal como se ha explicado anteriormente para rectángulos y es consecuencia de las consideraciones anteriores que también en este caso más general, las dos definiciones de integral coinciden.
+
+\section{Fórmula del cambio de variable.}
+\begin{theo}\textbf{5.}
+Sea $\varphi: U \longrightarrow V$ un isomorfismo de clase $\mathcal{C}^1$ entre abierto de $\mathbb{R}^k$ y sea $A \Subset U$ un conjunto $J$-medible
+
+Si $f: \varphi(A) \longrightarrow \mathbb{R}$ es integrable, también lo es $(f \circ \varphi) \cdot |J_{\varphi}|$ en $A$ y además se cumple que $$\mathlarger{\int_{\varphi(A)}} f(y) \: dy = \mathlarger{\int_{A}} \: f(\varphi(x)) \: |J_{\varphi}(x)| \: dx = \mathlarger{\int_{A}} \: \varphi^*(f(x)) \: |J_{\varphi}(x)| \: dx $$
+\end{theo}
+\begin{dem}
+Observemos en primer lugar que $\varphi^*(f) \cdot  |J_{\varphi}|$ también es integrable en $A$ por serlo $f$ en $\varphi(A)$ (ya que $|J_{\varphi}|$ es continua y $\varphi^*(f)$ es continua en casi todo punto por el \hyperref[teo2]{\textit{Teorema 2.}})
+
+Por el \hyperref[teo1]{\textit{Teorema 1.}} hay una sucesión finita $L$ de cubos cerrados con interiores disjuntos contenidos en $U$ tal que $A \subseteq L$. Si demostramos la igualdad del enunciado para cada $A \cap C$ donde $C$ es uno de estos cubos, quedará también demostrada para $A$, luego manteniendo la notación podemos suponer, sustituyendo $A$ por $A \cap C$, que $A$ está contenido en un cubo cerrado $C \subset U$, y tomando un cubo abierto $W$ que contenga a $C$ y esté fuertemente contenido en $U$, podemos suponer que $A \Subset W \Subset U$, para algún cubo abierto $W$.
+
+Como $\varphi$ es de clase $\mathcal{C}^1$ en $U$ y $W \Subset U$ es convexo, razonado como en el \hyperref[teo2]{\textit{Teorema 2.}}, podemos ver que hay una constante $M$ tal que $||\: \varphi(b)-\varphi(a)|| \leq M ||\: b-a \: ||$ para cualesquiera $a,b \in W$. En particular, deducimos de esto que si $(P_n)$ es una partición $J$-medible de $A$ tal que $N(P_n) \overset{n \to \infty}{\longrightarrow} 0$, (en el sentido análogo al habitual), también se verifica que $(\varphi(P_n))$ es una sucesión de particiones $J$-medibles de $\varphi(A)$ tal que $N(\varphi(P_n)) \overset{n \to \infty}{\longrightarrow} 0$.
+
+Consideremos entoces una tal sucesión ($P_n$) de particiones $J$-medibles de $A$. Se tiene que 
+$$\int_{\varphi(A)} \: f(y) \: dy = \lim_{n \to \infty} \underbrace{ \mathlarger{\mathlarger{\sum}}_{A_{n,i} \in P_n} f(\varphi(a_{n,i})) \cdot vol(\varphi(A_{n,i}))}_{\text{análogo a sumas de Darboux}}$$
+donde los $A_{n,i}$ son los conjuntos $J$-medibles que forman $P_n$ y $a_{n,i}$ es un punto de cada $A_{n,i}$ que lo vamos a escoger de modo que $|J_{\varphi}(x)|$ tome su valor máximo en $A_{n,i}$ en el punto $a_{n,i}$ 
+
+Por el \hyperref[teo4]{\textit{Teorema 4.}}, el límite de arriba es
+$$\leq \lim_{n \to \infty} \mathlarger{\mathlarger{\sum}}_{A_{n,i} \in P_n} f(\varphi(a_{n,i})) \cdot \int_{A_{n,i}} |J_{\varphi}(x)| \: dx \leq$$
+$$\leq \lim_{n \to \infty} \underbrace{\mathlarger{\mathlarger{\sum}}_{A_{n,i} \in P_n} \varphi^* (f)(a_{n,i}) \: |J_{\varphi}(a_{n,i})| \: vol(A_{n,i}) }_{\text{suma de Darboux de }\varphi^* (f) \: |J_{\varphi}| \text{ respecto de }P_n}=\int_A \varphi^*(f)(x) \: |J_{\varphi}(x)| \: dx$$
+
+Teniendo que 
+$$\int_{\varphi(A)} \: f(y) \: dy  \: \leq \int_A \varphi^*(f)(x) \: |J_{\varphi}(x)| \: dx$$
+
+Utilizando ahora esta misma desigualdad para el isomorfismo $\varphi^{-1}$ en lugar de $\varphi$ y para la función $g(x)= \varphi^* (f(x)) \: |J_{\varphi}(x)|$ en lugar de $f(y)$ se ve fácilmente que resulta la desigualdad contraria, con lo cual acabamos. 
+
+Básicamente
+$$\int_{\varphi^{-1}(A)} \: g(x) \: dx  \: \leq \int_{B=\varphi(A)} (\varphi^{-1})^*(g)(y) \: |J_{\varphi^{-1}}(y)| \: dy$$
+\end{dem}
+\begin{obs}
+Se define la norma de una partición $J$-medible como $N(P_n)=$máximo de los diámetros de los conjuntos $J$-medibles que forman $P_n$
+\end{obs}
+\chapter{Tema 3. Teoremas integrales.}
+\section{Integración sobre curvas en $\mathbb{R}^k$.}
+Consideremos la curva $\gamma$ definida por $\varphi: [a,b]\to \mathbb{R}^k$ continua. Es decir, $\gamma: \{\varphi(t)\in \mathbb{R}^k\,|\, t\in  [a,b]\} $. Recordemos que las funciones componentes de $\varphi$ son las funciones reales $\varphi_1, \ldots, \varphi_k$ en $[a,b]$ definidas por $\varphi(t)=(\varphi_1(t)\ldots,\varphi_k(t))$, para todo $t\in [a,b]$.
+\begin{defin}
+Dada una función continua $f$ dedinida en $\gamma$ y  una partición $P$ de $[a,b]$, llamaramemos \textbf{suma de Darboux} de $f$ sobre $\gamma$ respecto de $P$ y respecto de $x_j$ a cualquier suma del tipo $\sum_{i=0}^{r-1} f(\varphi(\alpha_i))\cdot (\varphi_j(t_{i+1})-\varphi_j(t_i))$, donde se supone que $P=\{t_0,\ldots,t_r\}$ y donde $\alpha_i$ es un  punto cualquiera de $[t_i,t_{i+1}]$. La notación $D_j(f,\gamma,P)$ representará siempre a tales sumas.
+
+\end{defin}
+\begin{defin}
+Se dice que $f$ es \textbf{integrable} sobre $\gamma$ respecto de $x_j$ si hay un número real $I_j(f,\gamma)$ tal que para cada $\varepsilon>0$ hay un $\delta>0$ de modo que:
+$$N(P)<\delta \Rightarrow |I_j(f,\gamma)-D_j(f,\gamma,P)|<\varepsilon$$
+Para toda suma de Darboux $D_j(f,\gamma,P)$. Al número real $I_j(f,\gamma)$, si existe, se le llama integral de $f$ sobre $\gamma$ respecto de $x_j$ y lo representaremos por $\int_{\gamma}f(x) \, dx_j$
+\end{defin}
+\begin{theo} \label{teo11}
+\textbf{1}: Si $\gamma$ es una curva de clase $\mathcal{C}^1$ en $\mathbb{R}^k$ (en el sentido de que está definida por $\varphi: [a,b]\to \mathbb{R}^k$ de clase $\mathcal{C}^1$) y $f:\gamma\to\mathbb{R}$ es una función continua, entonces $f$ es integrable sobre $\gamma$ respecto de $x_j$, para todo $j\in\{1,\ldots,k\}$, y el valor de esta integral se calcula como:
+$$\bbint_{\gamma}f(x) \, dx_j=\bbint_a^b f(\varphi(t))\cdot \varphi_j'(t) \, dt$$
+\end{theo}
+\begin{dem}
+Basta con comprobar que el número real $\int_a^b f(\varphi(t))\cdot \varphi_j'(t)\, dt$ verifica la condición de integrabilidad sobre $\gamma$. Para ello consideremos un $\varepsilon>0$ y sea $\delta>0$ cumpliendo las dos condiciones siguientes: \vspace{-3mm}
+\begin{itemize} 
+    \item $P\in Part[a,b]$ y $N(P)<\delta \Rightarrow$ $$\left|\bint_a^b f(\varphi(t))\cdot \varphi_j'(t) \, dt - \mathlarger{\sum}_{i=0}^{r-1} f(\varphi(\alpha_i))\cdot \varphi_j'(\alpha_i)\cdot (t_{i+1}-t_i)\right| < \varepsilon$$
+    para toda suma de Darboux de $(f\circ\varphi)\cdot \varphi'_j$ respecto de $P=\{t_0,\ldots,t_r\}$.
+    \item Dados $\alpha, \beta\in [a,b]$ tales que $|\alpha - \beta|<\delta \Rightarrow |f(\varphi(\alpha))-f(\varphi(\beta))|<\varepsilon$, lo cual es posible porque $f\circ \varphi$ es continua en $[a,b]$, luego es uniformemente continua (\textbf{Teorema de Heine-Cantor}: toda aplicación continua entre espacios métricos de soporte compacto es uniformemente continua).
+\end{itemize}
+Se tiene entonces que:
+$$\left| \int_a^b f(\varphi(t))\cdot \varphi_j'(t) \, dt - D_j(f,\gamma, P)\right|=\left| \int_a^b f(\varphi(t))\cdot \varphi_j'(t) \, dt -\sum_{i=0}^{r-1} f(\varphi(\alpha_i))\cdot (\varphi_j(t_{i+1})-\varphi_j(t_i))\right|=$$
+$$=\left| \int_a^b f(\varphi(t))\cdot \varphi_j'(t) \, dt -\sum_{i=0}^{r-1} f(\varphi(\alpha_i))\cdot \varphi_j'(\beta_i)\cdot (t_{i+1}-t_i)\right|$$
+donde se ha utilizado el teorema de los incrementos finitos aplicado a $\varphi_j$ en $[t_i,t_{i+1}]$, siendo $\beta_i$ un punto de este intervalo. Desarrollando la última expresión:
+$$\left| \int_a^b f(\varphi(t))\cdot \varphi_j'(t) \, dt -\sum_{i=0}^{r-1} f(\varphi(\alpha_i))\cdot \varphi_j'(\beta_i)\cdot (t_{i+1}-t_i)\right|\leq$$
+$$\leq\left| \int_a^b f(\varphi(t))\cdot \varphi_j'(t) \, dt -\sum_{i=0}^{r-1} f(\varphi(\alpha_i))\cdot \varphi_j'(\alpha_i)\cdot (t_{i+1}-t_i)\right|+\left|\sum_{i=0}^{r-1} f(\varphi(\alpha_i))\cdot \big(\varphi'_j(\alpha_i)-\varphi_j'(\beta_i)\big)\cdot (t_{i+1}-t_i)\right|<$$
+$$<\varepsilon+M\cdot \varepsilon(b-a)$$
+donde $M$ es una cota superior de $|f|$.
+\end{dem}
+
+\begin{defin}
+Sea $\gamma$ una curva definida por la aplicación $\varphi:[a,b]\longrightarrow \mathbb{R}^k$ de clase $\mathcal{C}^1$. Esto suele expresarse también diciendo que $\varphi$ es una parametrización de $\gamma$. Se dice que $\psi:[c,d]\longrightarrow \mathbb{R}^k$ es una \textbf{reparametrización} de $\gamma$ que conserva la orientación si hay un homeomorfismo creciente de clase $\mathcal{C}^1$, $h:[c,d]\longrightarrow[a,b]$ tal que $\psi=\varphi\circ h$. Si $h$ fuera un homeomorfismo decreciente de clase $\mathcal{C}^1$, entonces se dice que $\psi$ es una reparametrización que cambia la orientación.
+\end{defin}
+\begin{theo}
+\textbf{2}: Dada la curva $\gamma$ definida por $\varphi:[a,b]\to \mathbb{R}^k$ de clase $\mathcal{C}^1$, sea $h:[c,d]\to[a,b]$ un homeomorfismo creciente y llamemos $\psi$ a $\varphi\circ h$. Entonces para cada función continua $f$ y cada $j\in\{1,\ldots,k\}$ se tiene que:
+$$\int^b_a f(\varphi(t))\cdot \varphi_j'(t)\,dt=\int^d_c f(\psi(u))\cdot \psi'_j(t)\,du$$
+
+Y si $h$ fuera un homeomorfismo decreciente:
+$$\int^b_a f(\varphi(t))\cdot \varphi_j'(t)\,dt=-\int^d_c f(\psi(u))\cdot \psi'_j(t)\,du$$
+
+\begin{dem}
+Para demostrar la primera igualdad, observemos que por ser $h$ creciente se tiene que $h(c)=a$ y $h(d)=b$, luego por la fórmula de cambio de variable para funciones de una sola variable:
+$$\int^{h(b)}_{h(a)} f(\varphi(t))\cdot \varphi_j'(t)\,dt=\int^d_c f(\varphi(h(u)))\cdot \varphi_j'(h(u))\,du=\int^d_c f(\psi(u))\cdot \psi'_j(t)\,du$$
+El caso en el que $h$ es un homeomorfismo decreciente se demuestra análogamente
+\end{dem}
+\end{theo}
+\begin{theo} \textbf{3.} Sea $\gamma$ una curva en $\mathbb{R}^k$ parametrizada por la aplicación $\varphi : [a,b] \longrightarrow \mathbb{R}^k$ de clase $\mathcal{C}^1$. Entonces se verifica lo siguiente:
+\begin{enumerate}[(1)]
+    \item Si $f$ y $g$ son funciones integrables en $\gamma$ y $\lambda \in \mathbb{R}$, $f+g$ y $\lambda \cdot f$ también son integrables sobre $\gamma$ respceto de cualquier $x_j$ y además: $$\mathlarger{\int_{\gamma}}(f(x)+g(x)) \: d x_j = \mathlarger{\int_{\gamma}}f(x) \: d x_j + \mathlarger{\int_{\gamma}}g(x) \: d x_j $$  $$\mathlarger{\int_{\gamma}}\lambda \: f(x) \: d x_j =\lambda \: \mathlarger{\int_{\gamma}}f(x) \: d x_j $$
+    \item Si $\gamma'$ es otra curva en $\mathbb{R}^k$ cuyo extremo inicial coincide con el extremo final de $\gamma$, entonces $f$ es integrable sobre $\gamma \cup \gamma'$ en el sentido y con $f$ como en (1) y además $$\mathlarger{\int_{\gamma \cup \gamma'}}f(x) \: d x_j = \mathlarger{\int_{\gamma}}f(x) \: d x_j + \mathlarger{\int_{\gamma'}}f(x) \: d x_j$$
+    \item Si $f$ es una función continua en $\gamma$ y $\ell(\gamma)$  es la longitud de $\gamma$, tiene que $$\left| \mathlarger{\int_{\gamma}} f(x) \: dx_j \right| \leq \underset{x \in \gamma}{\max} \{ |f(x)|\} \: \ell(\gamma)$$
+\end{enumerate}
+\end{theo}
+\begin{dem}
+
+
+Las demostraciones de (1) y (2) son consecuencia sencilla de la definición de función integrable y de la integral de una tal función sobre $\gamma$. 
+
+Para ver que (3) es cierto, recordemos que $\ell(\gamma)=\mathlarger{\int_a^b} ||\: \varphi'(t)|| \: dt$, con lo cual se tiene que $$\left| \mathlarger{\int_{\gamma}} f(x) \: dx_j \right| \overset{\text{Teorema 1.}}{=} \left| \mathlarger{\int_a^b} f(\varphi(t)) \: \varphi_j '(t) \: dt \right| \leq \underset{t \in [a,b]}{\max} \{ |f(\varphi(t))| \} \mathlarger{\int_a^b} | \varphi_j '(t) | \: dt \leq $$
+$$ \overset{*}{\leq} \underset{t \in [a,b]}{\max} \{ |f(\varphi(t))| \} \mathlarger{\int_a^b} ||\varphi ' (t)|| \: dt = \underset{x \in \gamma}{\max} \{ |f(\varphi(t))| \} \: \ell(\gamma)$$
+
+* se sabe que $||x||=\sqrt{x_1^2 + \cdots + x_k^2}$, luego $|x_j| \leq ||x||$. Por tanto, $|\varphi'_j(t)| \leq ||\varphi ' (t)||$
+
+\end{dem}
+\section{Integral respecto de la longitud de arco.}
+Consideremos la curva $\gamma$ en $\mathbb{R}^k$ definida por $\varphi: [a,b] \longrightarrow \mathbb{R}^k$ de clase $\mc{C}^1$ y sea $f$ una función cotinua en $\gamma$. Sea $s(t)$ la función ``longitud de arco'' sobre $\gamma$, es decir, 
+$$s(t)=\mathlarger{\int_a^t} ||\: \varphi'(u)|| \: du$$
+
+\begin{defin}
+Llamaremos \textbf{suma de Darboux} de $f$ sobre $\gamma$ respecto de una $P \in Part([a,b])$ y respecto de la longitud de arco a toda suma del tipo 
+$$D'(f,\gamma,P) = \mathlarger{\sum}_{i=0}^{r-1} f(\varphi(\alpha_i)) \: (s(t_{i+1}) - s(t_i))$$
+donde se supone que $P=\{t_0, \ldots, t_r\}$ y que $\alpha_i$ es un punto cualquiera de $[t_i, t_{i+1}]$.
+\end{defin}
+\begin{defin}
+Se dice que $f$ es integrable sobre $\gamma$ respecto de la longitud de arco si hay un número real $I'(f,\gamma)$ tal que para cada $\varepsilon > 0$ hay un delta $\delta > 0$ de modo que $P \in Part([a,b])$ y $N(P) < \delta$ $\Rightarrow$ $|I'(f, \gamma) - D'(f,\gamma,P)| < \varepsilon$ para toda suma de Darboux $D'(f,\gamma,P)$. 
+
+Mediante el mismo tipo de razonamiento de la demostración del \hyperref[teo11]{\textit{Teorema 1.}} puede verse que la integral de $f$ sobre $\gamma$ respecto de la longitud de arco, siempre existe si $f$ es continua y además coincide con $\mathlarger{\int_a^b} f(\varphi(t)) \: ||\: \varphi ' (t)|| \: dt$. Por lo tanto, si al número real $I'(f,\gamma)$ lo denotamos por $\mathlarger{\int_{\gamma}} f(x) \: ds$, se tiene que 
+$$\mathlarger{\int_{\gamma}} f(x) \: ds = \mathlarger{\int_a^b} f(\varphi(t)) \: ||\: \varphi ' (t)|| \: dt$$
+\end{defin}
+
+Las integrales del tipo $\mathlarger{\int_{\gamma}} f(x) \: dx_j $, que habíamos considerado antes, también pueden considerarse respecto de varias coordenadas. Es decir, podemos considerar sumas del tipo $\mathlarger{\int_{\gamma}} f_1(x) \: dx_1 + \cdots + \mathlarger{\int_{\gamma}} f_k(x) \: dx_k$. Un caso particular importante es cuando hay una función $F$ de clase $\mc{C}^1$ en algún entorno abierto de $\gamma$ en $\mathbb{R}^k$ tal que 
+$$\dfrac{\partial F}{\partial x_j} = f_j$$
+Se dice entonces que $F$ es una función potencial de las $f_1, \ldots, f_k$ y se verifica el siguiente: 
+
+\begin{theo} \textbf{4.}
+Dada la integral curvilínea $\mathlarger{\int_{\gamma}} f_1(x) \: dx_1 + \cdots + \mathlarger{\int_{\gamma}} f_k(x) \: dx_k$ con $\gamma$ definida por $\varphi: [a,b] \longrightarrow \mathbb{R}^k$ de clase $\mc{C}^1$, si hay una función potencial $F$ en algún entorno abierto $U$ de la curva $\gamma$ que sea de clase $\mc{C}^1$, se tiene que $$\mathlarger{\int_{\gamma}} f_1(x) \: dx_1 + \cdots +  f_k(x) \: dx_k=F(\varphi(b)) - F(\varphi(a))$$ 
+\end{theo}
+\begin{dem}
+Por el \hyperref[teo11]{\textit{Teorema 1.}}, se verifica que: $$\mathlarger{\int_{\gamma}} f_1(x) \: dx_1 + \cdots +  f_k(x) \: dx_k = \mathlarger{\int_{a}^b} \Big( f_1(\varphi(t)) \varphi_1'(t) + \cdots + f_k(\varphi(t)) \varphi_k'(t) \Big)\: dt =$$ $$=\mathlarger{\int_{a}^b} \left(\dfrac{\partial F}{\partial x_1}(\varphi(t)) \varphi_1'(t) + \cdots + \dfrac{\partial F}{\partial x_k}(\varphi(t)) \varphi_k'(t) \right) \: dt = \mathlarger{\int_{a}^b} \dfrac{d(F \circ \varphi)}{dt} \: dt = \Big[ F(\varphi(t)) \Big]_a^b = $$ $$=F(\varphi(b)) - F(\varphi(a))$$
+
+\end{dem}
+\begin{obs}
+Si la función $F$ es una función potencial de las funciones $f_1, \ldots, f_k$, se dice que $f_1(x) \: dx_1 + \cdots +  f_k(x) \: dx_k$ es una forma diferencial exacta.
+\end{obs}
+
+El anterior teorema y también los previos son válidos para curvas de clase $\mc{C}^1$ a trozos con las mismas demostraciones.
+
+\begin{defin}
+La curva $\gamma$ definida por $\varphi: [a,b] \longrightarrow \mathbb{R}^k$ es de clase $\mc{C}^1$ a trozos si hay una partición $\{t_0, \ldots, t_r\}$ de $[a,b]$ tal que $\varphi$ es de clase $\mc{C}^1$ en cada itervalo $[t_i, t_{i+1}]$, con $0 \leq i \leq r-1$.
+En los puntos $t_i$, $\varphi$ puede no ser derivable, pero existen sus derivadas laterales, solo que no coinciden.
+
+\end{defin}
+\section{Fórmula de Riemann-Green.}
+Consideremos a continuación un subconjunto abierto acotado $W$ de $\mathbb{R}^2$ cuya frontera esté formada por la unión de dos curvas $\gamma_1$ y $\gamma_2$ de ecuaciones $y=\varphi(x)$ y $y=\varphi_2(x)$ respectivamente, con $\varphi_1, \varphi_2$ de clase $\mathcal{C}^1$ en un intervalo $[a,b]$ tales que $\varphi_1(x)<\varphi_2(x)$ para todo $x\in[a,b]$. Se supone también que $\partial W$ es la unión de dos curvas, $\Gamma_1$ y $\Gamma_2$, del tipo $x=\psi_1(y)$, $x=\psi_2(y)$, con $y\in[c,d]$ y $\psi_1(y)<\psi_2(y)$ para todo $y\in(c,d)$. Sean además, $f$ y $g$ funciones de clase $\mathcal{C}^1$ en algún entorno abierto de $\overline{W}$. Con estas notaciones e hipótesis se verifica el siguiente:
+\begin{theogreen}
+Con las hipótesis anteriores se verifica que: 
+$$\underset{{\partial W}}{\mathlarger{\int}} f(x,y) \: dx + \: g(x,y) \: dy = \underset{{\overline{W}}}{\mathlarger{\int}} \left( \dfrac{\partial g}{\partial x} - \dfrac{\partial f}{\partial y}\right) \: dx \: dy$$
+donde se supone que $\partial W$ está recorrida en sentido positivo (antihorario).
+\end{theogreen}
+\begin{obs} La integral del segundo miembro de la Fórmula de Riemann-Green es la integral sobre un conjunto $\overline{W}$ que es $J$-medible, como se explica a continuación, y por eso tiene sentido considerarla. 
+$$\underset{{\overline{W}}}{\mathlarger{\int}} \left( \dfrac{\partial g}{\partial x} - \dfrac{\partial f}{\partial y}\right) \: dx \: dy$$ 
+
+En efecto, para ver que  $\overline{W}$ es $J$-medible, basta con ver que la gráfica de una función cualquiera del tipo $F: [\alpha, \beta] \longrightarrow \mathbb{R}$ que sea de clase $\mc{C}^1$ es un subconjunto de medida nula en $\mathbb{R}^2$. Para ello, basta con ver que $F:[\alpha, \beta] \longrightarrow \mathbb{R} $ tiene una gráfica $G_F$ que es de medida nula. Observemos que $G_F$ es la imagen inversa de $[\alpha, \beta] \times \{0\}$ por la siguiente aplicación:
+$$\begin{array}{rcl}
+     (\alpha, \beta) \times \mathbb{R} & \longrightarrow & (\alpha, \beta) \times \mathbb{R}  \\
+     (x,y) & \longrightarrow & (x,F(x)-y) 
+\end{array}$$
+Obsérvese que la imagen de $G_F$ es efectivamente $(\alpha, \beta) \times \{0\}$ que es un subconjunto de medida nula de $(\alpha, \beta) \times \mathbb{R}$. Como los isomorfismos de clase $\mc{C}^1$ transforman conjuntos de medida nula en conjuntos de medida nula, obtenemos la conclusión deseada. 
+\end{obs}
+
+\begin{dem}
+Aplicando el Teorema de Fubini para recintos simples se tiene que: 
+$$\displaystyle \underset{{\overline{W}}}{\mathlarger{\int}} \frac{\partial f}{\partial y}\: dx \: dy = \bbint_a^b \left( \bbint_{\varphi_1(x)}^{\varphi_2(x)} \frac{\partial f}{\partial y} \: dy \right) \: dx = \bbint_a^b \left( \Big[ f(x,y) \:  \Big]_{\varphi_1(x)}^{\varphi_2(x)} \right)\: dx = $$ $$ = \bbint_a^b \left( f(x,\varphi_2(x)) - f(x,\varphi_1(x)) \right) \: dx = \underset{\gamma_2}{\int} f(x,y) dx - \underset{\gamma_1}{\int} f(x,y) dx = - \left( \underset{-\gamma_2}{\int} f(x,y) dx + \underset{\gamma_1}{\int} f(x,y) dx \right) $$ con lo que $\displaystyle \underset{{\overline{W}}}{\mathlarger{\int}} \frac{\partial f}{\partial x}\: dx \: dy = - \underset{{\partial{W}}}{\mathlarger{\int}} f(x,y)\: dx$. De la misma forma:
+$$\underset{{\overline{W}}}{\mathlarger{\int}} \frac{\partial g}{\partial x}\: dx \: dy = \bbint_c^d \left( \bbint_{\psi_1(y)}^{\psi_2(y)} \frac{\partial g}{\partial x} \: \: dx \right) \: dy = \bbint_c^d \left( \Big[ g(x,y) \: \Big]_{\psi_1(x)}^{\psi_2(x)} \right) \: dy =$$ $$=\bbint_c^d \Big( g(\psi_2(y),y) - g(\psi_1(y),y) \Big) \: dy = \underset{\Gamma_2}{\int} g(x,y) \: dy + \underset{-\Gamma_1}{\int} g(x,y) \: dy = \underset{\partial W}{\int} g(x,y) \: dy$$
+Y Restando ambos términos:
+$$\underset{{\partial W}}{\mathlarger{\int}} f(x,y) \: dx + \: g(x,y) \: dy = \underset{{\overline{W}}}{\mathlarger{\int}} \left( \dfrac{\partial g}{\partial x} - \dfrac{\partial f}{\partial y}\right) \: dx \: dy$$
+\end{dem}
+
+\begin{obs}
+Si la función $\frac{\partial g}{\partial x} - \frac{\partial f}{\partial y}$ fuera igual a $1$, obtendríamos en el primer miembro el área de $\overline{W}$. Por ejemplo, si fuera $\frac{\partial g}{\partial x} = \frac{1}{2}$ y $\frac{\partial f}{\partial y} = -\frac{1}{2}$, para lo que basta con tomar $g(x,y) = \frac{x}{2}$, $f(x,y) = -\frac{y}{2}$. Sustituyendo queda: $$\text{Area de } \overline{W} = A_{\: \overline{W}} = \frac{1}{2} \; \underset{\partial W}{\bbint} -y\: dx + x \: dy$$
+\end{obs}
+
+\section{área de una superficie en $\mathbb{R}^3$ definida por ecuaciones paramétricas de clase $\mathcal{C}^1$.}
+Sea $\mc{S}$ una superficie en $\mathbb{R}^3$ definida por una ecuación del tipo $z=f(x,y)$ donde $f$ es una función de clase $\mc{C}^1$ en un rectángulo cerrado $\mc{K}$ de $\mathbb{R}^2$ identificado con el plano $z = 0$ en $\mathbb{R}^3$. Usaremos la notación $\mathbb{R}_{x,y}^2$ en lo que sigue para representar a este plano idenmtificado con $\mathbb{R}^2$ mediante las coordenadas $x,y$. 
+
+Antes de continuar, vamos a considerar la siguiente situación:
+
+Sea $\pi$ un plano en $\mathbb{R}^3$ que no corte perpendicularmente al plano $z=0$ y sea $\mc{L}$ un rectángulo en  $\mathbb{R}_{x,y}^2$ en sentido generalizado (es decir, un paralelogramo tal que dos de sus lados contiguos son perpendiculares). Sea $\mc{L}'$ un rectángulo en $\pi$ que se proyecta sobre $\mc{L}$, es decir, $\{(x,y,z) \in \pi \: : \: (x,y,0) \in \mc{L} \}$. 
+\begin{prop}
+La expresión del área de $\mc{L}'$ viene dada por
+$$A(\mc{L}') = \dfrac{A(\mc{L})}{\cos (\rho)}$$
+donde $A(\mc{L}')$ y $A(\mc{L})$ son las áreas de los respectivos rectángulos y $\rho$ es el ángulo formado por $\pi$ y $\mathbb{R}_{x,y}^2$.
+\end{prop}
+\begin{dem}
+Supongamos en primer lugar que $\pi$ y $\mathbb{R}_{x,y}^2$ se cortan en el eje $x$ (si no se cortaran lo que queremos demostrar es evidente). En este caso es fácil ver que se verifica la anterior igualdad (el lado paralelo a la recta de corte de los planos conserva su longitud al proyectarse y para un lado $\ell '$ no paralelo a dicha recta de $\mc{L}'$ la longitud de su proyección es $\frac{\text{longitud de } \ell'}{\cos(\rho)}$ \Big).
+
+En el caso general, como $\mc{L}$ es un conjunto $J$-medible, podemos aproximarlo por dentro y por fuera por uniones finitas a los ejes $x,y$ de coordenadas y, como para estos rectángulos ya sabemos que lo que queremos demostrar es cierto, se deduce también para el rectángulo $\mc{L}$ considerado.
+
+Consideremos ahora una partición $P$ de $\mc{K}$ y sean $\{\mc{K}_i\}$ los rectángulos de $P$. Sea $(x_i, y_i)$ un punto cualquiera de $\mc{K}_i$ y sea $a_i=(x_i, y_i, f(x,y)) \in \mc{S}$. Llamemos también $\mathlarger{\pi}_i$ al plano tangente a $\mc{S}$ en $a_i$ y $\rho(x,y)$ al ángulo que forman $\mathbb{R}^2_{x,y}$ y $\mathlarger{\pi}_i$. Observemos que $\rho(x_i,y_i)$ también es el ángulo formado por el eje $z$ y un vector normal a $\mathlarger{\pi}_i$. Como un tal vector normal es el gradiente en $a_i$ en $z-f(x,y)$, tenemos que 
+$$\cos(\rho \: (x_i,y_i))=\dfrac{\langle \left(\dfrac{\partial}{\partial z}\right)_{a_i} - \dfrac{\partial f}{\partial x}(x_i,y_i) \left(\dfrac{\partial}{\partial x_i}\right)_{a_i} - \dfrac{\partial f}{\partial y}(x_i,y_i) \left(\dfrac{\partial}{\partial y_i}\right)_{a_i} ,\; \left(\dfrac{\partial}{\partial z}\right)_{a_i} \rangle}{\sqrt{1 + f_x(x_i, y_i)^2 + f_y(x_i, y_i)^2} }$$
+donde se ha usado la notación habitual para representar a las derivadas parciales. Como el producto escalar del numerador es 1, queda que 
+$$\rho \: (x_i, y_i) = \dfrac{1}{\sqrt{1 + f_x(x_i, y_i)^2 + f_y(x_i, y_i)^2} }$$
+
+Por lo tanto, el área de la parte $\mc{K}_i$ del plano $\mathlarger{\pi}_i$ que se proyecta sobre $\mc{K}_i$ es 
+$$\dfrac{A(\mc{K}_i)}{\frac{1}{\sqrt{1 + f_x(x_i, y_i)^2 + f_y(x_i, y_i)^2} }} = A(\mc{K}_i) \cdot \sqrt{1 + f_x(x_i, y_i)^2 + f_y(x_i, y_i)^2}  $$
+luego la suma de todas las áreas es 
+$$\mathlarger{\mathlarger{\sum}}_{\mc{K}_i \in P} \sqrt{1 + f_x(x_i, y_i)^2 + f_y(x_i, y_i)^2} \; \cdot A(\mc{K}_i)$$
+Observemos ahora que esta suma es una suma de Darboux $D(\sqrt{1+f_x^2+f_y^2},P)$ de la función continua $\sqrt{1+f_x^2+f_y^2}$ respecto de la partición $P$ de $\mc K$, y recordemos que estas sumas de Darboux tienden a la integral en el sentido de que dado $\varepsilon > 0$ existe un $\delta > 0$ tal que $$P \in Part(\mc K) \text{ y } N(P) < \delta \;\Longrightarrow\; \big|\int_{\mc K} \sqrt{1+f_x^2+f_y^2}\: dx\: dy - D(\sqrt{1+f_x^2+f_y^2},P)\big| < \varepsilon$$
+Como además es un hecho intuitivo que la suma de las áreas de las citadas partes de los planos tangentes $\pi_i$ parecen aproximar el área de la superficie $\mc S$ cuando los rectángulos $\mc K_i$ de $P$ se hacen arbitrariamente pequeños, se adopta el convenio de definir el área de $\mc S$ como el citado límite. En definitiva, tenemos que $$A(\mc S) = \int_{\mc K} \sqrt{1+f_x^2+f_y^2} \:dx \:dy$$estando definida $\mc S$ por $z = f(x,y)$.
+\end{dem}
+
+\vspace{5cm}
+\begin{defin}
+$\mc{S}$ en $\mathbb{R}^3$ de ecuación $z=f(x,y)$, con $f: \mc{K} \longrightarrow \mathbb{R}$ de clase $\mc{C}^1$ siendo $\mc{K}$ un rectángulo en $\mathbb{R}^2_{x,y}$. Entonces 
+$$A(\mc{S}) = \mathlarger{\int}_{\mc{K}} \sqrt{1 + f_x^2 + f_y^2} \: dx \: dy$$
+\end{defin}
+\begin{cor}
+Sea $A$ un subconjunto $J$-medible cerrado de un abierto $\mc{U}$ de $\mathbb{R}^2_{x,y}$ y sea $f: \: \mc{U} \longrightarrow \mathbb{R}$ de clase $\mc{C}^1$. Si $\mc{S}$ es la superficie definida por $z=f(x,y)$, con $(x,y) \in A$, entonces
+$$A(\mc{S})= \mathlarger{\int}_{A} \sqrt{1 + f_x^2 + f_y^2} \: dx \: dy$$
+\end{cor}
+\begin{dem}
+Sabemos que $A$ puede aproximarse por dentro y por fuera por uniones finitas de cuadrados cerrados con interiores disjuntos. Para cada uno de estos cuadrados vale la igualdad del enunciado por el Teorema previo y se deduce fácilmente que para el conjunto $A$ también vale dicha igualdad.
+\end{dem}
+\begin{consprev}
+
+Consideremos la aplicación $\Psi: \: \mc{K} \longrightarrow \mathbb{R}^3$ de clase $\mc{C}^1$ e inyectiva, donde $\mc{K}$ es un rectángulo cerrado en $\mathbb{R}^2$. A las coordenadas cartesianas en $\mathbb{R}^2 \supset \mc{K}$ las vamos a denotar por $u,v$  y las funciones componentes de $\Psi$ las vamos a denotar por $x(u,v), y(u,v), z(u,v)$. Es decir, 
+$$\Psi(u,v) = \big( x(u,v), y(u,v), z(u,v) \big) \in \mathbb{R}^3$$
+Lo arriba escrito se suele expresar también diciendo que la imagen $\mc{S}$ de $\mc{K}$ por $\Psi$ es la superficie en $\mathbb{R}^3$ dada por las ecuaciones paramétricas $x=x(u,v), y=y(u,v), z=z(u,v)$. 
+
+Supondremos también que la superficie $\mc{S}=\Psi(\mc{K})$ es regular, lo cual significa que $\Psi$ es de clase $\mc{C}^1$ y que la matriz $$\frac{\partial(x,y,z)}{\partial(u,v)}(u_o, v_o) = \left(\begin{array}{cc}
+     x_u & x_v \\
+     y_u & y_v \\
+     z_u & z_v
+\end{array} \right) \; (u_o, v_o)$$ es de rango 2 para cada punto $(u_o, v_o) \in \mc{K}$ . Una condición equivalente es que los valores de los campos vectoriales $$R_u = x_u \; \dfrac{\partial }{\partial x} + y_u \; \dfrac{\partial}{\partial y} + z_u \; \dfrac{\partial}{ \partial z} \qquad R_v= x_v \; \dfrac{\partial }{\partial x} + y_v \; \dfrac{\partial}{\partial y} + z_v \; \dfrac{\partial}{ \partial z}$$ en cada punto de $\mc{S}$ son linealmente independientes.
+
+Representaremos por $J_1, J_2, J_3$ respectivamente, a los determinantes $$\left| \begin{array}{cc}
+     y_u & y_v  \\
+     z_u & z_v
+\end{array}\right|, \left| \begin{array}{cc}
+     x_u & x_v  \\
+     z_u & z_v
+\end{array}\right|, \left| \begin{array}{cc}
+     x_u & x_v  \\
+     y_u & y_v
+\end{array}\right|$$
+Como vamos a ver que el área de $\mc{S}$, es decir, 
+$$A(\mc{S})= \mathlarger{\int}_{\mc{K}} \sqrt{J_1(u,v)^2+J_2(u,v)^2+J_3(u,v)^2 } \: du \: dv$$
+ y como esta integral es el límite de integrales similares sobre rectángulos contenidos en el interior de $\mc{K}$ y con áreas arbitrariamente próximas a la de $\mc{K}$, podemos suponer sin pérdida de generalidad que $\Psi$ está definida y verifica las anteriores hipótesis en algún entorno abierto de $\mc{K}$.
+ 
+ Además de esto, observemos que por hipótesis, en cada punto de $\mc{K}$ alguno de los tres determinantes jacobianos $J_1, J_2, J_3$ toma valor $\neq$ 0. Podemos entonces considerar una partición $P$ de $\mc{K}$ suficientemente fina para que uno de los $J_1, J_2, J_3$ tome valores distintos de 0 en todos los puntos de cada rectángulo $\mc{K}_i$ de $P$. Como si demostramos que la anterior fórmula del cálculo del área vale para cada $\mc{K}_i$, queda también demostrado para todo $\mc{K}$, basta con demostrar la fórmula previa, tomando un $\mc{K}_i$ cualquiera en lugar de $\mc{K}$ y volviendo a llamar $\mc{K}$ por sencillez al $\mc{K}_i$ escogido. En todos los puntps de $\mc{K}$ tenemos entonces que uno de los $J_1, J_2, J_3$ que vamos a suponer por ejemplo que es el $J_3$ (en los otros casos se puede razonar igual) toma siempre valor $\neq$ 0. 
+ 
+ En definitiva, podemos suponer que la $\Psi$ inicial está definida y verifica lo ya explicado en algún entorno abierto de $\mc{K}$ y que $J_3(u_o,v_o) \neq 0$ para todo ($u_o, v_o$) de algún entorno abierto de $\mc{K}$. 
+ 
+ Llamemos $\varphi$ a la aplicación de $\mc{K}$ en $\mathbb{R}^2$ definida por $\varphi(u,v) = \big( x(u,v), y(u,v) \big)$ en algún entorno abierto $\mc{U}$ de $\mc{K}$. \\
+Concluyendo y como recopilación, podemos asegurar que:
+ \begin{enumerate}[(1)]
+     \item $\Psi$ está definido y es refular en algún entorno abierto de $\mc{K}$.
+     \item Sustituyendo si fuera preciso $\mc{K}$ por un rectágulo $\mc{K}_i$ de alguna partición de $\mc{K}$ suficientemente fina y conservando la notación, podemos suponer que uno de los $J_i$ no se anula en ningún punto de $\mc{K}$. Por el mismo procedimiento, podemos suponer también que la aplicación $\varphi$ definida por $(u,v) \longrightarrow (x(u,v), y(u,v))$ es un homeomorfismo de clase $\mc{C}^1$ de algún entorno abierto $\mc{V}$ de $\mc{K}$ con algún entorno abierto $\mc{W}$ de $\Psi(\mc{K})$ (como consecuencia del Teorema de la función inversa). 
+ \end{enumerate}
+ 
+ Observemos ahora que la imagen $A=\varphi(\mc{K})$ del rectángulo $\mc{K}$ por la aplicación $\varphi$ es un conjunto $J$-medible cerrado por un teorema previo. 
+ 
+ Vamos a denotar por $u(x,y), v(x,y)$ a las funciones componentes de la función inversa $\varphi^{-1}: \mc{W} \longrightarrow \mc{V}$. Entonces, en $\mc{W}$ podemos expresar $z$ como función de $x$ e $y$ del modo siguiente
+ $z=z(u(x,y), v(x,y))$ y vamos a llamar por simplicidad $f(x,y)$ a la función $z(u(x,y), v(x,y))$, con lo que tenemos, por la regla de la cadena, que $$f_x=z_u u_x + z_v v_x \quad  f_y=z_u u_y + z_v v_y$$
+ Aplicando ahora la fórmula del cambio de variable, vemos que $$A(\mc{S})=\mathlarger{\int}_{A=\varphi(\mc{K})} \sqrt{1+f_x^2+f_y^2} \: dx \: dy = \mathlarger{\int}_{\mc{K}} \sqrt{1+f_x(u,v)^2+f_y(u,v)^2} \: J_3(u,v) \: du \: dv$$
+ Antes de continuar, necesitamos calcular $u_x, v_x, u_y, v_y$ en función de los datos que tenemos. Esto puede hacerse teniendo en cuenta que 
+ $$\left(\begin{array}{cc}
+      u_x & u_y  \\
+      v_x & v_y
+ \end{array}\right) = \left(\begin{array}{cc}
+      x_u & y_u  \\
+      x_v & y_v
+ \end{array}\right)^{-1}=\dfrac{1}{J_3}\left(\begin{array}{cc}
+      y_v & -x_v  \\
+      -y_u & x_u
+ \end{array}\right)$$
+ Volviendo a la expresión del área:
+ $$A(\mc{S})=\mathlarger{\int}_{\mc{K}} \sqrt{1+\left( z_u \dfrac{y_v}{J_3} - z_v \dfrac{y_v}{J_3}\right)^2 +\left( - z_u \dfrac{x_v}{J_3} + z_v \dfrac{x_u}{J_3}\right)^2 } \: J_3 \: du \: dv = $$
+ $$= \mathlarger{\int}_{\mc{K}} \sqrt{1+\left( \dfrac{J_1}{J_3} \right)^2 +\left( \dfrac{J_2}{J_3}\right )^2 } \: J_3 \: du \: dv = \mathlarger{\int}_{\mc{K}} \sqrt{J_1^2 + J_2^2 + J_3^2} \: du \: dv$$
+ \end{consprev}
+ \begin{coro} \label{cor1}
+ Si $\Psi$ es una aplicación de clase $\mc{C}^1$ regular en un entorno abierto de un conjunto $J$-medible cerrado $A$ de $\mathbb{R}^2$ con valores e $\mathbb{R}^3$ y $\mc{S}$ es la superficie igual a $\Psi(A)$, el área de $\mc{S}$ puede calcularse del modo siguiente
+ $$A(\mc{S})=\mathlarger{\int}_{\mc{K}} \sqrt{J_1^2 + J_2^2 + J_3^2} \: du \: dv$$
+ donde $J_1, J_2, J_3$ significan lo mismo que en el teorema. 
+ \end{coro}
+ \begin{coro} 
+ Con las hipótesis y notación del teorema previo también se tiene que $$A(\mc{S}) = \mathlarger{\int}_{\mc{K}} ||R_u \times R_v|| \: du \: dv$$ donde $R_u, R_v$ son los campos vectoriales sobre $\mc{S}$ previamente considerados.  
+ \end{coro}
+ \begin{coro}
+ Con las hipótesis y notación del \hyperref[cor1]{\textit{Corolario 1.}}, también se tiene que $$A(\mc{S}) = \mathlarger{\int}_{A} ||R_u \times R_v|| \: du \: dv$$
+ \end{coro}
+ En ambos casos, la demostración se obtiene de que el producto vectorial $$||R_u \times R_v|| =  \sqrt{J_1^2 + J_2^2 + J_3^2} $$ como se comprueba fácilmente. 
+\section{Superficies orientables.}
+ 
+ Hasta ahora solo hemos considerado superficies parametrizadas como la $\mc{S}$ que aparecía en el Teorema 2 \textcolor{red}{linkear}. Observemos que la superficie $\mc{S}$ del Teorema 1.\textcolor{red}{linkear}, con ecuación $z=f(x,y)$ es un caso particular de las que aparecen en el Teorema 2. \textcolor{red}{linkear}. En efecto, si ponemos $x=u, y=v, z=f(u,v)$, tenemos una parametrización como la del último teorema. 
+ 
+ Podríamos también considerar superficies de tipo más general, que fueran uniones finitas de las superficies hasta ahora consideradas; es decir, uniones finitas de superficies paramétricas, que se demuestra que también son uniones finitas de superficies paramétricas con interiores disjuntos. 
+ 
+ Supondremos también que toda superficie que consideremos, además de ser compactas (por definición de compacidad, ya que son uniones finitas de superficies compactas por ser imágenes de cojuntos compactos por aplicaciones continuas).
+ 
+ Por ejemplo, la superficie esférica $\mc{S}$ de ecuación $x^2+y^2+z^2=1$ es unión de las dos superficies paramétricas de ecuaciones $z= \sqrt{1-x^2-y^2}$ y $z=-\sqrt{1-x^2-y^2}$. 
+ 
+ A partir de ahora, diremos simplemente superficie para referirnos a una superficie de los tipos anteriormente considerados. \begin{defin}
+ Se dice que una superficie $\mc{S}$ es orientable si hay un campo vectorial continuo  (las funciones coordenadas del campo son continuas) en $\mc{S}$ cuyo valor en cada punto $\mc{S}$ es siempre distinto de 0 y es perpendicular a $\mc{S}$.
+ 
+ Si existe un tal campo vectorial en $\mc{S}$, también hay un campo vectorial $\mc{N}$ en $\mc{S}$ del mismo tipo y cuyo valor en cada punto sea de módulo 1, es decir; un campo vectorial unitario en $\mc{S}$ continuo y perpendicular a $\mc{S}$ en todo punto. 
+ \end{defin}
+ \begin{defin}
+ A un campo vectorial como el anterior $\mc{N}$ se le llama \textbf{orientación} en $\mc{S}$. Es claro que si $\mc{N}$ es una orientación en $\mc{S}$, también lo es $- \mc{N}$. Además, por ser $\mc{S}$ conexa, no hay más orientaciones en $\mc{S}$ (porque cualquier orientación en $\mc{S}$ podría obtenerse a partir de una orientación dada multiplicándola multiplicando por una función continua y solo tomaría los valores 1 y -1 por lo que tendría que ser constante).  
+ \end{defin}
+ \begin{defin}
+ Se llama \textbf{superficie orientada} a toda superficie orientable en la que se ha elegido una de las dos orientaciones posibles. 
+ \end{defin}
+\begin{obs}
+Observemos ahora que toda superficie paramétrica es orientable, porque el producto vectorial $R_u \times R_v$ es un campo vectorial sobre $\mc{S}$ que no se anula en ningún punto (suficiente con la hipótesis de que son linealmente independientes) y es perpendicular a $\mc{S}$ en cada punto. Por lo tanto, $\mc{N}=\dfrac{R_u \times R_v}{||R_u \times R_v||}$ es una orientación en $\mc{S}$ y $- \mc{N}$ es la otra orientación posible. A partir de ahora, cuando consideremos una superficie paramétrica, la consideraremos siempre como superficie orientada con la orientación definida por $\mc{N}$.
+
+En el caso particular en que la superficie paramétrica considerada está definida por una ecuación del tipo $z=f(x,y)$, el campo será
+$$\mc{N}= \dfrac{-f_x \dfrac{\partial}{\partial x} -f_y \dfrac{\partial}{\partial y} + \dfrac{\partial}{\partial z}}{\sqrt{1 + f_x^2 +f_y^2}}$$
+con lo que vemos que el vector $N_a$ es igual al valor de $\mc{N}$ en cada punto $a \in \mc{S}$, es siempre un vector que está dirigido hacia arriba (es decir, la parte positiva del eje $z$ en sentido creciente de los valores de $z$). 
+\end{obs}
+ 
+Si $\mc{S}$ es una superficie cerrada, es decir, si hay un abierto relativamente compacto $U$ de $\mathbb{R}^3$ tal que $\mc{S}=\partial U$, como por ejemplo una superficie esférica, se demustra que $\mc{S}$ es orientable y que la orientación puede escogerse de modo que su valor en cada punto sea el vector normal unitario dirigido hacia afuera.
+
+\section{Integrales de Superficie}
+
+Sea $\mc{S}$ una superficie paramétrica en $\mathbb{R}^3$ orientada y sea $f$ una función continua sobre $\mc{S}$. Si $\mc{S}$ está definida por las ecuaciones $x=x(u,v), \: y=y(u,v), \: z=z(u,v)$ de clase $\mc{C}^1$ (y de modo que la aplicación $(u,v) \longrightarrow (x(u,v), \: y(u,v), \: z(u,v))$ sea inyectiva y regular), se llama integral de $f$ sobre $\mc{S}$ respecto de las coordenadas $x$ e $y$ a 
+$$\bbint_{\mc{K}} \; f(x(u,v), y(u,v), z(u,v)) \: \pd{(x,y)}{(u,v)} \: du \: dv$$
+donde la aplicación inyectiva y regular que define a $\mc{S}$ se supone definida y verificando lo mencionado sobre $\mc{K}$, que es un rectángulo cerrado en $\mathbb{R}^2$. La definición sería la misma en el caso también previamente considerado en que la superficie está definido por una aplicación de clase $\mc{C}^1$ inyectiva y regular en algún abierto de un subconjunto $J$-medible de $\mathbb{R}^2$.
+
+También se puede considerar la integral de $f$ sobre $\mc{S}$ respecto del ``elemento área'' $dA=||R_u \times R_v|| \: du \: dv = \sqrt{J_1^2+J_2^2+J_3^2} \: du \: dv$. Esta integral sería entonces
+$$\bbint_{\mc{S}} \; f(x,y,z) \: dA = \bbint_{\mc{K}} \; f(x(u,v),y(u,v),z(u,v)) \: \sqrt{J_1^2+J_2^2+J_3^2} \: du \: dv$$
+
+\section{Teoremas integrales}
+Consideremos un subconjunto abierto $U$ de $\mathbb{R}^3$ y sea $D = f \frac{\partial}{\partial x} + g \frac{\partial}{\partial y} + h \frac{\partial}{\partial z}$ un campo vectorial de clase $\mc{C}^1$ en $U$, es decir, $f, g, h \in \mc{C}^1(U)$.
+
+\begin{defin}
+Se llama \textbf{divergencia} del campo $D$ a la función definida en $U$ por $$div(D) = \frac{\partial f}{\partial x} + \frac{\partial g}{\partial y} + \frac{\partial h}{\partial z}$$
+\end{defin}
+\begin{defin}
+Si $\mc{S}$ es una superficie orientada en $U$, se llama \textbf{flujo} de $D$ a través de $\mc{S}$ a la integral $$\bbint_{\mc{S}} f(x,y,z)\,dy\,dz + g(x,y,z)\,dx\,dz + h(x,y,z)\, dx \, dy$$
+\end{defin}
+
+En el caso particular en que $\mc{S}$ sea una superficie cerrada (es decir, $\mc{S}=\partial W$ para algún abierto $W \Subset U$), se verifica lo siguiente:
+
+\begin{theodiv}
+Si $\mc{S}$ es una superficie cerrada, el flujo de $D$ a través de $\mc{S}$ es igual a la integral sobre $\overline{W}$ de $div(D)$: $$\bbint_{\mc{S}} f(x,y,z)\,dy\,dz + g(x,y,z)\,dx\,dz + h(x,y,z)\, dx \, dy = \bbint_{\overline{W}} \frac{\partial f}{\partial x} + \frac{\partial g}{\partial y} + \frac{\partial h}{\partial z} \,dx\,dy\,dz$$
+\end{theodiv}
+\begin{defin}
+Se llama rotacional de $D$ (abreviadamente $rot(D)$) al campo vectorial en $U$ definido por 
+$$rot(D)=\left(\pd{h}{y} - \pd{g}{z} \right) \pd{\:}{x} + \left(\pd{f}{z} - \pd{h}{x} \right) \pd{\:}{y}+\left(\pd{g}{x} - \pd{f}{y} \right) \pd{\:}{z}$$
+Obsérvese que denotando $\{\frac{\partial}{\partial x},\frac{\partial}{\partial y},\frac{\partial}{\partial z}\}$ por $\{\hat{\imath},  \hat{\j},  \hat{k}\}$, como es habitual en la literatura matemática, podemos compactar esta expresión como $$rot(D) = \left|\begin{array}{ccc}
+    \hat{\imath} &  \hat{\j} &  \hat{k}  \\
+    \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
+    f & g & h 
+\end{array}\right| $$
+\end{defin}
+\begin{defin}
+Consideremos ahora una superficie orientada $\mc{V}$ en $U$ y también otra superficie $\mc{S}$ contenida en $\mc{V}$ cuya frontera sea una curva regular. Se llama circulación del campo $D$ a lo largo de $\partial \mc{S}$ a la integral
+$$\underset{\partial \mc{S}}{\bbint} f \: dx + g \: dy + h \: dz$$
+donde se supone que la orientación de $\partial \mc{S}$ es la inducida por la de $\mc{V}$ (es decir, la contraria al sentido de giro de las agujas del reloj desde el lado de $\mc{V}$ al cual apunta el campo que define la orientación de $\mc{V}$).
+\end{defin}
+\begin{theorot} Con las anteriores hipótesis y notaciones, se verifica que la circulación de $D$ a lo largo de $\partial \mc S$ es igual al flujo de $rot(D)$ a través de $\mc S$. 
+\end{theorot}
+
+\chapter{Tema 4. \\ Introducción a las funciones de variable compleja.}
+\section{Series de potencias complejas.}
+Una serie de potencias complejas es una suma de la forma
+$$\mathlarger{\sum_{n=0}^{\infty}} a_n (z-a)^n$$ donde $a_n \in \mathbb{C}$ para todo $n \in \mathbb{Z}^+$, $a \in \mathbb{C}$ y se entiende que $z$ es una variable compleja. 
+
+\begin{defin}
+Llamaremos \textbf{campo de convergencia} de esta serie al conjunto $$\{z_o \in \mathbb{C} \: : \: \mathlarger{\sum_{n=0}^{\infty}} a_n (z_o-a)^n \text{ converge}\}$$
+\end{defin}
+
+
+\begin{defin}
+Se llama \textbf{disco abierto} centrado en $a \in \mathbb{C}$ y radio $r$ al conjunto 
+$$\mathbb{D}(a,r) = \{z \in \mathbb{C} \: : \: |z-a| < r\}$$
+
+De la misma forma, se define un \textbf{disco cerrado} como 
+$$\overline{\mathbb{D}}(a,r) = \{z \in \mathbb{C} \: : \: |z-a| \leq r\}$$
+Observemos que la anterior serie siempre converge al menos en un punto. Concretamente, converge para $z=a$.
+
+Si hay otro punto $z_o \in C = \{a\}$, donde $C$ es el campo de convergencia de la serie, se verifica el siguiente:
+\end{defin}
+\begin{theo} \label{teo111} \textbf{1.} Con las hipótesis y notación anteriores, si la serie dada converge en algún punto $z_o \neq a$, también converge absoluta y uniformemente en algún disco cerrado $\overline{\mathbb{D}}(a,r)$ tal que  $r < |z_o - a|$. 
+\end{theo}
+\begin{dem}
+
+Supongamos entonces que $\mathlarger{\sum_{n=0}^{\infty}} a_n (z-a)^n$ converge y sea $r<|z_o-a|$. Por abreviar, llamaremos $\rho$ a $\dfrac{r}{|z_o - a|} < 1$. Se tiene entonces que 
+$$z \in \overline{\mathbb{D}}(a,r) \; \Rightarrow \; |a_n(z-a)^n| = |a_n(z-a)^n| \dfrac{|z-a|^n}{|z_o-a|^n} \leq |a_n(z-a)^n| \dfrac{r^n}{|z_o-a|^n} = |a_n(z-a)^n| \cdot \rho^n $$ 
+
+Como $\mathlarger{\sum_{n=0}^{\infty}} a_n (z-a)^n$ converge, su término general $a_n (z-a)^n$ tiende a 0 cuando $n \to \infty$, luego la sucesión $(a_n (z-a)^n)$ está acotada, por lo que hay un $K \in \mathbb{R}$ tal que $|a_n (z-a)^n| \leq K$ para todo $n \in \mathbb{N}$. Vemos entoces que los términos de la serie $\mathlarger{\sum_{n=0}^{\infty}} | a_n (z-a)^n |$ son menores o iguales que los de la serie $\mathlarger{\sum_{n=0}^{\infty}} K \cdot \rho^n$, que es una serie numérica convergente, para todo $z \in \overline{\mathbb{D}}(a,r)$. Se deduce entonces de $\mathlarger{\sum_{n=0}^{\infty}} a_n (z-a)^n$ que converge absolutamente para todo $z \in \overline{\mathbb{D}}(a,r)$ y del criterio de la serie numérica mayorante de Weiertrass que la convergencia es uniforme en $\overline{\mathbb{D}}(a,r)$.
+\begin{obs}
+    Recordemos el criterio de la serie numérica mayorante de Weiertrass:
+    
+    Sea una serie de funciones $\mathlarger{\sum_{n=1}^{\infty}} f_n$ con $|f_n|\leq \alpha_n$ en un conjunto $X$, para todo $n \in \mathbb{N}$ y si la serie $\mathlarger{\sum_{n=1}^{\infty}} \alpha_n$ converge, también converge uniformemente en $X$ la serie $\mathlarger{\sum_{n=1}^{\infty}} f_n$
+\end{obs}
+    
+
+\end{dem}
+\begin{cor}
+Dada la serie de potencias $\mathlarger{\sum_{n=0}^{\infty}} a_n (z-a)^n$ hay tres posibilidades:
+\begin{enumerate}
+    \item La serie solo converge para $z = a$
+    \item El campo de convergencia $C$ de la serie contiene puntos distintos de $a$ y además es acotado. En este caso se verifica:
+    $$\mathbb{D}(a,R) \subseteq C \subseteq \overline{\mathbb{D}}(a,R)$$
+    donde $R = \sup\{|z-a| \: : \: z \in \mathbb{C}\}$.
+    \item $C$ no está acotado. En este caso $C = \mathbb{C}$. 
+\end{enumerate}
+\end{cor}
+\begin{dem}
+Supongamos que $C$ contiene puntos distintos de $a$. Entonces puede ser que $C$ sea acotado o que no lo sea. 
+
+Supongamos primero que $C$ es acotado y sea $R= \sup\{|z-a| \: : \: z \in \mathbb{C}\}$. Entonces, para cada $r < R$, hay un $z_o \in C$ tal que  $r < |z_o - a|$ y por el teorema previo, $\mathlarger{\sum_{n=0}^{\infty}} a_n (z-a)^n$ converge para todo $z \in \overline{\mathbb{D}}(a,r)$. Como $\mathbb{D}(a,R)$ es la unión de todos los $\overline{\mathbb{D}}(a,r)$, al variar $r$ en ($0,R$), vemos que ${\mathbb{D}}(a,R) \subseteq C$. 
+
+Si $C$ no está acotado, el mismo tipo de razonamiento que acabamos de utilizar muestra que $\overline{\mathbb{D}}(a,R) \subseteq C$ para todo $r \in (0, + \infty)$, luego $\mathbb{C} = C$
+\end{dem}
+\section{Radio de convergencia y disco de convergencia de una serie de potencias compleja. }
+\begin{defin}
+Dada la serie de potencias $\mathlarger{\sum_{n=0}^{\infty}} a_n (z-a)^n$ al elemento $R$ de $\mathbb{R}^+ \cup \{+\infty \}$ definido por:
+$$R = \left\{ \begin{array}{l}
+    0, \text{ si la serie solo coverge para } z=a\\
+    \sup\{|z-a| \: : \: z \in \mathbb{C}\} \text{, si } C-\{a\} \neq \emptyset \text{ y } C \text{ es acotado.} \\
+    + \infty, \text{ si } C = \mathbb{C}.
+\end{array}\right.$$
+se le llama \textbf{radio de convergencia} de la serie. Al correspondiente ``disco" \: $\mathbb{D}(a,R)$ se le llama \textbf{disco de convergencia} de la serie.
+\end{defin}
+\begin{defin} 
+Recordemos que dada la sucesión acotada $(\lambda_n)$ de números reales, su \textbf{límite superior} es el único número real $\ell$ que verifica la condición siguiente:
+
+Para cada $\varepsilon > 0$, hay solo un conjunto finito de términos de $(\lambda_n)$ que son $\geq \ell + \varepsilon$ y hay infinitos de estos términos que son $\geq \ell - \varepsilon$. 
+
+Equivalentemente diremos que es el mayor de los límites de las subsucesiones convergentes de $(\lambda_n)$. 
+\end{defin}
+\begin{theo} \textbf{2.} Dada la serie de potencias $\mathlarger{\sum_{n=0}^{\infty}} a_n (z-a)^n$, su radio de convergencia $R$ puede obtenerse a partir de los coeficientes $a_n$ de la serie del modo siguiente
+$$R = \dfrac{1}{\overline{\lim} \sqrt[n]{|a_n|}}$$
+entendiéndose que si el anterior $\overline{\lim} $ es $\infty$, $R$ es 0, y que si el $\overline{\lim} $ es 0, entonces $R$ es $+\infty$
+\end{theo}
+\begin{dem}
+Vamos a suponer que $\overline{\lim} \sqrt[n]{|a_n|}$ es un n{\'u}mero real $\ell >0$. En los otros casos puede razonarse de modo similar (m{\'a}s sencillo incluso).
+
+Veamos entonces que si $z_o \in \mathbb{D}(a,\nicefrac{1}{\ell})$, la serie converge en $z_o$. Luego veremos que si $z_o \nin \overline{\mathbb{D}}(a,\nicefrac{1}{\ell})$ la serie no converge en $z_o$. 
+
+Consideremos un $z_o \in \mathbb{D}(a,\nicefrac{1}{\ell})$, por lo que $|z_o - a|<\dfrac{1}{\ell} \; \Rightarrow \; |z_o - a | \: \ell < 1$. Es decir,
+$$1 > |z_o - a| \: \overline{\lim} \sqrt[n]{|a_n|} =\overline{\lim} \sqrt[n]{|a_n (z_o - a)^n|}$$
+Por abreviar, pongamos $L=\overline{\lim} \sqrt[n]{|a_n (z_o - a)^n|}$ y escojamos un $\varepsilon > 0$ suficientemente pequeño para que $L<1-2\varepsilon$. De la definici{\'o}n de l{\'i}mite superior se deduce que solo hay un conjunto finito de t{\'e}rminos de esa $\Big(\sqrt[n]{|a_n (z_o - a)^n|}\Big)$ que son $> L + \varepsilon < 1 - \varepsilon$. Por lo tanto, hay un $n_o \in \mathbb{N}$ tal que $n \geq n_o \; \Rightarrow \; \sqrt[n]{|a_n (z_o - a)^n|} \leq 1- \varepsilon$. Del criterio de la ra{\'i}z sobre la convergencia de una serie de t{\'e}rminos positivos se deduce que 
+$\displaystyle \mathlarger{\sum}_{n=0}^{\infty} \: |a_n (z_o - a)^n| $ converge, luego $\displaystyle \mathlarger{\sum}_{n=0}^{\infty} \: a_n (z_o - a)^n$ converge.
+
+Supongamos ahora que $z_o \nin \overline{\mathbb{D}}(a, \nicefrac{1}{\ell})$, es decir, que $|z_o - a| > \dfrac{1}{\ell}$, luego $|z_o - a| \: \ell > 1$. Con la notaci{\'o}n de antes, lo que tenemos ahora es $L>1$ y podemos considerar un $\varepsilon > 0$ tal que $L - \varepsilon > 1$. Por definici{\'o}n de l{\'i}mite superior hay infinitos t{\'e}rminos de $\Big(\sqrt[n]{|a_n (z_o - a)^n|}\Big)$ que son $> L - \varepsilon > 1$, luego por el criterio de la ra{\'i}z tenemos que $\displaystyle \mathlarger{\sum}_{n=0}^{\infty} \: |a_n (z_o - a)^n| $ diverge para todo $z_o \nin \overline{\mathbb{D}}(a,\nicefrac{1}{\ell})$. 
+
+Como lo que queremos ver es que $\displaystyle \mathlarger{\sum}_{n=0}^{\infty} \: a_n (z_o - a)^n$ no converge, podemos alcanzar esta conclusi{\'o}n a partir del \hyperref[teo111]{\textit{Teorema 1.}} del modo siguiente:
+
+Consideremos de nuevo un $z_o \nin \overline{\mathbb{D}}(a,\nicefrac{1}{\ell})$ cualquiera y sea $z_1 \in \mathbb{C}$ tal que $\dfrac{1}{\ell} < |z_1-a| < |z_o - a|$ Si fuera $\displaystyle \mathlarger{\sum}_{n=0}^{\infty} \: a_n (z_o - a)^n$ convergente, por el \hyperref[teo111]{\textit{Teorema 1.}} tendr{\'i}a que ser $\displaystyle \mathlarger{\sum}_{n=0}^{\infty} \: |a_n (z_1 - a)^n| $ convergente, lo cual hemos visto antes que no puede suceder. 
+\end{dem}
+\begin{theo} \textbf{3.} Si $f(z)$ es la funci{\'o}n definida por la serie de potencias $\displaystyle \mathlarger{\sum}_{n=0}^{\infty} \: a_n (z_o - a)^n$ en su disco de convergencia $\mathbb{D}(a,R)$ se verifican:
+\begin{enumerate}
+    \item El radio de convergencia de la serie $\displaystyle \mathlarger{\sum}_{n=0}^{\infty} \: n \: a_n (z_o - a)^{n-1}$, obtenida derivando t{\'e}rmino a t{\'e}rmino la serie dada, tambi{\'e}n es $R$.
+    \item Para todo $z \in \mathbb{D}(a,R)$ existe la derivada compleja $f'(z)$, es decir, $\lim \dfrac{f(z+h) - f(z)}{h}$ y adem{\'a}s $f'(z)$ puede obtenerse derivando t{\'e}rmino a t{\'e}rmino la serie dada en el sentido de que $f'(z)=\displaystyle \mathlarger{\sum}_{n=0}^{\infty} \:n \: a_n (z_o - a)^{n-1}$, para todo $z \in \mathbb{D}(a,R)$.
+\end{enumerate}
+\end{theo}
+\begin{obs}
+Basta con demostrar 2. en el caso particular en que $a=0$ (p{\'o}ngase $w=z-a$ y consid{\'e}rese la serie $\displaystyle \mathlarger{\sum}_{n=0}^{\infty} \: a_n w^{n}$).
+\end{obs}
+\begin{dem} \: 
+
+Para ver 1. observemos que el radio de convergencia de $\displaystyle \mathlarger{\sum}_{n=0}^{\infty} \:n \: a_n (z_o - a)^{n-1}$ es por el \hyperref[teo222]{\textit{Teorema 2.}}, igual a $\dfrac{1}{\overline{\lim} \sqrt[n]{n |a_n|}}$ y como $\lim \sqrt[n]{n} = 1$, obtenemos la conclusi{\'o}n deseada. 
+
+
+Consideremos $r \in (0,R)$ y un $z \in \mathbb{D}_r=\mathbb{D}(0,r)$, fijo en el razonamiento que sigue y sea $\delta > 0$ tal que $|z|+\delta < r$. Dado $\varepsilon > 0$ y $h \in \mathbb{D}_{\delta}-\{0\}$, consideremos
+$$\left| \dfrac{\mathlarger{\sum}_{n=0}^{\infty} \: a_n (z + h)^{n} - \mathlarger{\sum}_{n=0}^{\infty} \: a_n z^{n}}{h}  - \mathlarger{\sum}_{n=0}^{\infty} \:n \: a_n z^{n-1}\right| = \left| \dfrac{\mathlarger{\sum}_{n=1}^{\infty} \: a_n \big((z + h)^{n} - z^n\big)}{h} - \mathlarger{\sum}_{n=0}^{\infty} \:n \: a_n z^{n-1}\right| =  $$
+$$ = \left|\mathlarger{\sum}_{n=1}^{\infty} \: a_n \big((z + h)^{n-1} + (z + h)^{n-2} z + \cdots + (z + h) z^{n-2} + z^{n-1} - n \: z^{n-1} \big) \right| $$
+
+Observemos ahora que $|z+h|^{n-1}, \: |z+h|^{n-2}|z|, \: \ldots, \: |z+h| |z|^{n-2}, \: |z|^{n-1}$ son todos $< r^{n-1}$, luego se tiene que $$ \left|\mathlarger{\sum}_{n=1}^{\infty} \: a_n \big((z + h)^{n-1} + (z + h)^{n-2} z + \cdots + (z + h) z^{n-2} + z^{n-1} - n \: z^{n-1} \big) \right| < 2 \mathlarger{\sum}_{n=n_o+1}^{\infty} \: n \: |a_n| \: r^{n-1} + \mathlarger{\sum}_{n=1}^{n_o} P_n(z,h)$$ donde $P_n(z,h)$ es el polinomio en $z,h$ dado por $(z + h)^{n-1} + (z + h)^{n-2} z + \cdots + (z + h) z^{n-2} + z^{n-1} - n \: z^{n-1}$, donde $n_o \in \mathbb{N}$ se ha elegido de modo que $\mathlarger{\sum}_{n=n_o+1}^{\infty} n \:  |a_n| \: r^{n-1} < \nicefrac{\varepsilon}{3}$ (lo cual es posible porque $r \in \mathbb{D}(0, R)$, luego $\mathlarger{\sum}_{n=n_o+1}^{\infty} | n \: a_n \: r^{n-1} |$ converge absolutamente para $z=r$). Observemos finalmente que el polinomio $P_n(z,h)$ se anula para $h=0$ y todo valor de $z$, por lo que si tomamos $\delta$ suficientemente pequeño podemos conseguir que  
+$$\mathlarger{\sum}_{n=1}^{n_o} | P_n(z,h)| < \nicefrac{\varepsilon}{3}$$
+
+Por tanto, queda demostrado que la cota es $\varepsilon$
+
+
+\end{dem}
+\end{document} 
+
